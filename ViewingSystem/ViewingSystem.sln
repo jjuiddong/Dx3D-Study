@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ViewingSystem", "ViewingSystem.vcxproj", "{2EF29C05-9759-5B57-E272-3A5D9B6E535B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2EF29C05-9759-5B57-E272-3A5D9B6E535B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2EF29C05-9759-5B57-E272-3A5D9B6E535B}.Debug|Win32.Build.0 = Debug|Win32
+		{2EF29C05-9759-5B57-E272-3A5D9B6E535B}.Release|Win32.ActiveCfg = Release|Win32
+		{2EF29C05-9759-5B57-E272-3A5D9B6E535B}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
