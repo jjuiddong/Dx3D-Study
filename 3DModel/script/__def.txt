@@ -1,0 +1,291 @@
+GPJ
+
+MAT
+{
+	float
+	float
+	float
+	float
+}
+OBJECT_TYPE
+{
+	int
+}
+DIFFUSE 
+{
+	float
+	float
+	float
+	float
+}
+AMBIENT 
+{
+	float
+	float
+	float
+	float
+}
+SPECULAR 
+{
+	float
+	float
+	float
+	float
+}
+EMISSIVE 
+{ 
+	float
+	float
+	float
+	float
+} 
+OPACITY
+{ 
+	float
+}
+POWER 
+{ 
+	float
+}
+TEXTURE
+{
+	char[128]
+}
+
+MATERIAL
+{
+	int
+	DIFFUSE
+	AMBIENT
+	SPECULAR
+	EMISSIVE
+	POWER
+	TEXTURE
+}
+MATERIALGROUP
+{
+	int
+	MATERIAL*
+}
+
+LOCALTM
+{
+	MAT
+	MAT
+	MAT
+	MAT
+}
+
+VEC
+{
+	float
+	float
+	float
+}
+
+VECNORM
+{
+	float
+	float
+	float
+	float
+	float
+	float
+}
+VECNORMTEX
+{
+	float
+	float
+	float
+
+	float
+	float
+	float
+
+	float
+	float
+}
+
+WORLDTM
+{
+	MAT
+	MAT
+	MAT
+	MAT
+}
+
+VERTEX
+{
+	int
+	VEC*
+}
+
+VERTEXNORMAL
+{
+	int
+	VECNORM*
+}
+VERTEXNORMALTEX
+{
+	int
+	VECNORMTEX*
+}
+IDX
+{
+	short
+	short
+	short
+}
+INDEX
+{
+	int
+	IDX*
+}
+FRAME_POS
+{
+	float
+	float
+	float
+	float
+}
+
+FRAME_ROT
+{
+	float
+	float
+	float
+	float
+	float
+}
+
+FRAME_SCALE
+{
+	float
+	float
+	float
+	float
+}
+
+KEY_POS
+{
+	int
+	FRAME_POS*
+}
+KEY_ROT
+{
+	int
+	FRAME_ROT*
+}
+KEY_SCALE
+{
+	int
+	FRAME_SCALE*
+}
+KEY
+{
+	int
+	float
+	float
+	KEY_POS
+	KEY_ROT
+	KEY_SCALE
+}
+
+WEIGHTINFO
+{
+	int
+	float
+}
+
+VTXWEIGHT
+{
+	int
+	int
+	WEIGHTINFO*
+}
+
+VERTEXWEIGHT
+{
+	int
+	VTXWEIGHT*
+}
+
+MESH
+{
+	int
+	char[32]
+	int
+	int
+	VERTEXNORMAL
+	VERTEXNORMALTEX
+	INDEX
+	VERTEXWEIGHT
+	dummy	$ material
+	dummy	$ vertex buffer
+	dummy	$ index buffer
+}
+
+MESHGROUP
+{
+	int
+	MESH*
+}
+
+BONE
+{
+	int
+	char[32]
+	int
+	LOCALTM 
+	WORLDTM 
+}
+
+BONEGROUP
+{
+	int
+	BONE*
+}
+
+ANIMATION
+{
+	int
+	float
+	float
+	KEY_POS
+	KEY_ROT
+	KEY_SCALE
+}
+
+ANIMATIONGROUP
+{
+	int
+	char[32]
+	int
+	ANIMATION*
+}
+
+ANIFORM
+{
+	int
+	ANIMATIONGROUP*
+}
+
+ANIINFO
+{
+	char[32]
+	char[64]
+}
+
+ANILIST
+{
+	int
+	ANIINFO*	
+}
+
+BMMFORM
+{
+	OBJECT_TYPE
+	MATERIALGROUP
+	MESHGROUP
+	BONEGROUP
+}

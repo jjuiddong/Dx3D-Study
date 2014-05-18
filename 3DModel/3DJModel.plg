@@ -1,0 +1,132 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: 3DJModel - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "F:\DOCUME~1\JJUIDD~1\LOCALS~1\Temp\RSPE.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /FR"Debug/" /Fp"Debug/3DJModel.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\P\3DModel\drawtext.cpp"
+"D:\P\3DModel\sound.cpp"
+"D:\P\3DModel\sound_lib.cpp"
+"D:\P\3DModel\sound_track.cpp"
+]
+Creating command line "cl.exe @F:\DOCUME~1\JJUIDD~1\LOCALS~1\Temp\RSPE.tmp" 
+Creating temporary file "F:\DOCUME~1\JJUIDD~1\LOCALS~1\Temp\RSPF.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib d3dx9.lib d3d9.lib dxguid.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/3DJModel.pdb" /debug /machine:I386 /out:"Debug/3DJModel.exe" /pdbtype:sept 
+.\Debug\3DJModel.obj
+.\Debug\3dNode.obj
+.\Debug\ai_object.obj
+.\Debug\AniMesh.obj
+.\Debug\Bone.obj
+.\Debug\Camera.obj
+.\Debug\character.obj
+.\Debug\collision.obj
+.\Debug\combo.obj
+.\Debug\control.obj
+.\Debug\d3dUtility.obj
+.\Debug\dbg.obj
+.\Debug\dbgpcinfo.obj
+.\Debug\dbgsymengine.obj
+.\Debug\drawtext.obj
+.\Debug\FileLoader.obj
+.\Debug\Global.obj
+.\Debug\KeyAniMesh.obj
+.\Debug\LifeBar.obj
+.\Debug\LinearMemLoader.obj
+.\Debug\Matrix.obj
+.\Debug\Mesh.obj
+.\Debug\Model.obj
+.\Debug\Quaternion.obj
+.\Debug\scene.obj
+.\Debug\sceneGame.obj
+.\Debug\sceneMenu.obj
+.\Debug\script.obj
+.\Debug\script_analyze.obj
+.\Debug\script_codegen.obj
+.\Debug\script_global.obj
+.\Debug\script_machine.obj
+.\Debug\script_parser.obj
+.\Debug\sound.obj
+.\Debug\sound_lib.obj
+.\Debug\sound_track.obj
+.\Debug\Terrain.obj
+.\Debug\Track.obj
+.\Debug\Tree.obj
+.\Debug\uicontrol.obj
+.\Debug\Vector2.obj
+.\Debug\Vector3.obj
+]
+Creating command line "link.exe @F:\DOCUME~1\JJUIDD~1\LOCALS~1\Temp\RSPF.tmp"
+<h3>Output Window</h3>
+Compiling...
+drawtext.cpp
+sound.cpp
+d:\p\3dmodel\sound_track.h(11) : fatal error C1083: Cannot open include file: 'dshow.h': No such file or directory
+sound_lib.cpp
+d:\p\3dmodel\sound_lib.h(16) : fatal error C1083: Cannot open include file: 'dmksctrl.h': No such file or directory
+sound_track.cpp
+d:\p\3dmodel\sound_track.h(11) : fatal error C1083: Cannot open include file: 'dshow.h': No such file or directory
+Error executing cl.exe.
+Creating temporary file "F:\DOCUME~1\JJUIDD~1\LOCALS~1\Temp\RSP10.tmp" with contents
+[
+/nologo /o"Debug/3DJModel.bsc" 
+.\Debug\3DJModel.sbr
+.\Debug\3dNode.sbr
+.\Debug\ai_object.sbr
+.\Debug\AniMesh.sbr
+.\Debug\Bone.sbr
+.\Debug\Camera.sbr
+.\Debug\character.sbr
+.\Debug\collision.sbr
+.\Debug\combo.sbr
+.\Debug\control.sbr
+.\Debug\d3dUtility.sbr
+.\Debug\dbg.sbr
+.\Debug\dbgpcinfo.sbr
+.\Debug\dbgsymengine.sbr
+.\Debug\drawtext.sbr
+.\Debug\FileLoader.sbr
+.\Debug\Global.sbr
+.\Debug\KeyAniMesh.sbr
+.\Debug\LifeBar.sbr
+.\Debug\LinearMemLoader.sbr
+.\Debug\Matrix.sbr
+.\Debug\Mesh.sbr
+.\Debug\Model.sbr
+.\Debug\Quaternion.sbr
+.\Debug\scene.sbr
+.\Debug\sceneGame.sbr
+.\Debug\sceneMenu.sbr
+.\Debug\script.sbr
+.\Debug\script_analyze.sbr
+.\Debug\script_codegen.sbr
+.\Debug\script_global.sbr
+.\Debug\script_machine.sbr
+.\Debug\script_parser.sbr
+.\Debug\sound.sbr
+.\Debug\sound_lib.sbr
+.\Debug\sound_track.sbr
+.\Debug\Terrain.sbr
+.\Debug\Track.sbr
+.\Debug\Tree.sbr
+.\Debug\uicontrol.sbr
+.\Debug\Vector2.sbr
+.\Debug\Vector3.sbr]
+Creating command line "bscmake.exe @F:\DOCUME~1\JJUIDD~1\LOCALS~1\Temp\RSP10.tmp"
+Creating browse info file...
+BSCMAKE: error BK1506 : cannot open file '.\Debug\sound.sbr': No such file or directory
+Error executing bscmake.exe.
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+3DJModel.exe - 4 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

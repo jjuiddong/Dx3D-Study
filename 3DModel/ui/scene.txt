@@ -1,0 +1,44 @@
+GPJ
+
+$ CONTROL type, id, visible, filename, x,y,w,h, wc, hc
+
+SCENE 1 2
+{
+	CONTROL 0, 100, 1, "image//btn1.bmp", 10, 10, 100, 50
+	CONTROL 0, 101, 1, "image//btn2.bmp", 10, 60, 100, 50
+	SCENECOUNT 3
+
+	$ 타이틀 화면
+	SCENE 2 3
+	{
+		CONTROL 0, 100, 1, "image//btn1.bmp", 10, 10, 100, 50
+		CONTROL 0, 101, 1, "image//btn2.bmp", 10, 60, 100, 50
+		SCENECOUNT 0
+	}
+
+	$ 메뉴화면
+	SCENE 3 3
+	{
+		CONTROL 1, 102, 1, "image//background.bmp",  0,  0, 800, 600
+		CONTROL 1, 110, 1, "image//32 title.bmp",  100,  50, 602, 312
+		CONTROL 1, 111, 1, "image//32 --.bmp",  125, 355, 570, 100
+		CONTROL 1, 104, 1, "image//button2.bmp", 300, 370, 218, 187, 218, 187
+$		CONTROL 0, 103, 1, "image//button1.bmp", 100, 50, 200, 100, 100, 100
+		SCENECOUNT 0
+	}
+
+	$ 게임화면
+	SCENE 4 0
+	{
+		CONTROL 1, 100, 1, "image//lifebar.bmp", 0, -15, 400, 138
+		SCENECOUNT 0
+	}
+
+	$ 로드화면
+	SCENE 5 3
+	{
+		CONTROL 1, 100, 1, "image//loadscene.bmp",  0,  0, 800, 600
+		SCENECOUNT 0
+	}
+
+}

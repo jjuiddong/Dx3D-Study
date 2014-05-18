@@ -1,0 +1,6 @@
+SCENE_BEGIN
+	SCENE_CLASS( CTitleScene, 2 )
+	SCENE_CLASS( CMenuScene, 3 )
+	SCENE_CLASS( CGameScene, 4 )
+	SCENE_CLASS( CLoadScene, 5 )
+SCENE_END

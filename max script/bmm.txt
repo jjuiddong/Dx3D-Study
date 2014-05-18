@@ -1,0 +1,61 @@
+GPJ
+BMMFORM
+{
+	OBJECT_TYPE type=1
+	MATERIALGROUP count=1
+	{
+		MATERIAL id=0
+		{
+			DIFFUSE [x=0.588 y=0.588 z=0.588 a=1]
+			AMBIENT [x=0.588 y=0.588 z=0.588 a=1]
+			SPECULAR [x=0.9 y=0.9 z=0.9 a=1]
+			EMISSIVE [x=0.588 y=0.588 z=0.588 a=0]
+			POWER val=0.0
+		}
+	}
+	MESHGROUP count=1
+	{
+		MESH id=0 name="Box001" parentId=-1 materialId=-1
+		{
+			VERTEXNORMAL count=0
+			{
+			}
+			VERTEXNORMALTEX count=12
+			{
+				VECNORMTEX [x=-5.23026,y=-3.03005,z=2.85813] [nx=0.665173,ny=-1.40774,nz=0.207882] [u=0.0,v=1.0] 
+				VECNORMTEX [x=0.189622,y=-2.51275,z=-10.9811] [nx=0.665173,ny=-1.40774,nz=0.207882] [u=1.0,v=1.0] 
+				VECNORMTEX [x=-12.2066,y=11.7343,z=0.677871] [nx=-0.665173,ny=1.40774,nz=-0.207882] [u=0.0,v=0.0] 
+				VECNORMTEX [x=-6.7867,y=12.2516,z=-13.1614] [nx=-0.665173,ny=1.40774,nz=-0.207882] [u=1.0,v=0.0] 
+				VECNORMTEX [x=6.25773,y=3.09635,z=7.58618] [nx=0.665173,ny=-1.40774,nz=0.207882] [u=0.0,v=1.0] 
+				VECNORMTEX [x=-5.23026,y=-3.03005,z=2.85813] [nx=0.665173,ny=-1.40774,nz=0.207882] [u=1.0,v=1.0] 
+				VECNORMTEX [x=-0.718586,y=17.8607,z=5.40592] [nx=-0.665173,ny=1.40774,nz=-0.207882] [u=0.0,v=0.0] 
+				VECNORMTEX [x=-12.2066,y=11.7343,z=0.677871] [nx=-0.665173,ny=1.40774,nz=-0.207882] [u=1.0,v=0.0] 
+				VECNORMTEX [x=-6.7867,y=12.2516,z=-13.1614] [nx=-0.665173,ny=1.40774,nz=-0.207882] [u=0.0,v=1.0] 
+				VECNORMTEX [x=4.7013,y=18.378,z=-8.43336] [nx=-0.665173,ny=1.40774,nz=-0.207882] [u=1.0,v=1.0] 
+				VECNORMTEX [x=-12.2066,y=11.7343,z=0.677871] [nx=-0.665173,ny=1.40774,nz=-0.207882] [u=0.0,v=0.0] 
+				VECNORMTEX [x=-0.718586,y=17.8607,z=5.40592] [nx=-0.665173,ny=1.40774,nz=-0.207882] [u=1.0,v=0.0] 
+			}
+			INDEX count=12
+			{
+				IDX [x=9,y=10,z=11]
+				IDX [x=10,y=9,z=8]
+				IDX [x=8,y=11,z=9]
+				IDX [x=11,y=8,z=10]
+				IDX [x=4,y=7,z=5]
+				IDX [x=7,y=4,z=6]
+				IDX [x=0,y=3,z=1]
+				IDX [x=3,y=0,z=2]
+				IDX [x=4,y=7,z=5]
+				IDX [x=7,y=4,z=6]
+				IDX [x=0,y=3,z=1]
+				IDX [x=3,y=0,z=2]
+			}
+			VERTEXWEIGHT 0
+			{
+			}
+		}
+	}
+	BONEGROUP count=0
+	{
+	}
+}
