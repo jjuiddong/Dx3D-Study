@@ -1,0 +1,25 @@
+HRESULT SetShader( LPDIRECT3DDEVICE9 pd3dDevice )
+{
+   pd3dDevice->SetTextureStageState( 0, D3DTSS_COLOROP,   D3DTOP_SELECTARG1 );
+   pd3dDevice->SetTextureStageState( 0, D3DTSS_COLORARG1, D3DTA_TEXTURE );
+   pd3dDevice->SetTextureStageState( 0, D3DTSS_ALPHAOP,   D3DTOP_DISABLE );
+
+   pd3dDevice->SetTextureStageState( 1, D3DTSS_COLOROP,   D3DTOP_SELECTARG2 );
+   pd3dDevice->SetTextureStageState( 1, D3DTSS_COLORARG2, D3DTA_CURRENT );
+   pd3dDevice->SetTextureStageState( 1, D3DTSS_ALPHAOP,   D3DTOP_SELECTARG1 );
+   pd3dDevice->SetTextureStageState( 1, D3DTSS_ALPHAARG1, D3DTA_TEXTURE | D3DTA_ALPHAREPLICATE );
+
+   pd3dDevice->SetTextureStageState( 2, D3DTSS_COLOROP,   D3DTOP_BLENDCURRENTALPHA );
+   pd3dDevice->SetTextureStageState( 2, D3DTSS_COLORARG1, D3DTA_TEXTURE );
+   pd3dDevice->SetTextureStageState( 2, D3DTSS_COLORARG2, D3DTA_CURRENT );
+   pd3dDevice->SetTextureStageState( 2, D3DTSS_ALPHAOP,   D3DTOP_DISABLE );
+
+   pd3dDevice->SetTextureStageState( 3, D3DTSS_COLOROP,   D3DTOP_DISABLE );
+   pd3dDevice->SetTextureStageState( 3, D3DTSS_ALPHAOP,   D3DTOP_DISABLE );
+
+   pd3dDevice->SetTextureStageState( 4, D3DTSS_COLOROP,   D3DTOP_DISABLE );
+   pd3dDevice->SetTextureStageState( 4, D3DTSS_ALPHAOP,   D3DTOP_DISABLE );
+
+   DWORD dwNumPasses;
+   return pd3dDevice->ValidateDevice( &dwNumPasses );
+}

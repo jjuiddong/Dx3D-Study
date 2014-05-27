@@ -1,0 +1,220 @@
+자세한 내용은 jjuiddong.egloos.com 을 참조하자.
+
+	D3DLIGHT9 light;
+	D3DXVECTOR3 position( 1 * cosf(g_fLightAngle), 1 * sinf(g_fLightAngle), -.5f );
+	D3DXCOLOR c = d3d::WHITE;
+	light = d3d::InitPointLight(&position, &c);
+
+	매터리얼은 공통이다.
+	// A material
+	g_Mtrl1.Diffuse = D3DXCOLOR( 1.0f, 1.0f, 1.0f, 1.0f );
+	g_Mtrl1.Ambient = D3DXCOLOR( 1.0f, 1.0f, 1.0f, 1.0f );
+	g_Mtrl1.Specular = D3DXCOLOR( 1.0f, 1.0f, 0.0f, 1.0f );
+	g_Mtrl1.Emissive = D3DXCOLOR( .0f, .0f, .0f, 1.0f );
+	g_Mtrl1.Diffuse.a = 0.7f;
+	g_Mtrl1.Power = 5.0f;
+
+	// B material
+	g_Mtrl2.Diffuse = D3DXCOLOR( 1.0f, 1.0f, 1.0f, 1.0f );
+	g_Mtrl2.Ambient = D3DXCOLOR( 1.0f, 1.0f, 1.0f, 1.0f );
+	g_Mtrl2.Specular = D3DXCOLOR( 0.0f, 1.0f, 0.0f, 1.0f );
+	g_Mtrl2.Emissive = D3DXCOLOR( .0f, .0f, .0f, 1.0f );
+	g_Mtrl2.Diffuse.a = 1.0f;
+	g_Mtrl2.Power = 5.0f;
+
+
+
+라이팅이 먹지 않는다.
+g_pDevice->SetRenderState( D3DRS_SPECULARENABLE, FALSE );
+
+
+diffuse 로 알파블렌딩 할때
+	g_pDevice->SetTextureStageState( 0, D3DTSS_ALPHAARG1, D3DTA_DIFFUSE );
+	g_pDevice->SetTextureStageState( 0, D3DTSS_ALPHAOP, D3DTOP_SELECTARG1 );
+	g_pDevice->SetRenderState( D3DRS_SRCBLEND, D3DBLEND_SRCALPHA );
+	g_pDevice->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA );
+
+
+
+1. no normal, no texture, material, lighting 은 알파블렌딩이 안된다. normal이 없어서 인듯하다.
+
+typedef struct D3DLVERTEX
+{
+	enum { FVF =  D3DFVF_XYZ | D3DFVF_DIFFUSE };
+	Vector3 v;
+	DWORD c;
+
+	D3DLVERTEX() {}
+	D3DLVERTEX(const Vector3 &v0, DWORD color0)
+	{
+		v = v0;
+		c = color0;
+	}
+
+} D3DLVERTEX, *LPD3DLVERTEX;
+
+	// A material
+	g_Mtrl1.Diffuse = D3DXCOLOR( 1.0f, 1.0f, 1.0f, 1.0f );
+	g_Mtrl1.Ambient = D3DXCOLOR( 1.0f, 1.0f, 1.0f, 1.0f );
+	g_Mtrl1.Specular = D3DXCOLOR( 1.0f, 1.0f, 0.0f, 1.0f );
+	g_Mtrl1.Emissive = D3DXCOLOR( .0f, .0f, .0f, 1.0f );
+	g_Mtrl1.Diffuse.a = 0.7f;
+	g_Mtrl1.Power = 5.0f;
+
+	// B material
+	g_Mtrl2.Diffuse = D3DXCOLOR( 1.0f, 1.0f, 1.0f, 1.0f );
+	g_Mtrl2.Ambient = D3DXCOLOR( 1.0f, 1.0f, 1.0f, 1.0f );
+	g_Mtrl2.Specular = D3DXCOLOR( 0.0f, 1.0f, 0.0f, 1.0f );
+	g_Mtrl2.Emissive = D3DXCOLOR( .0f, .0f, .0f, 1.0f );
+	g_Mtrl2.Diffuse.a = 1.0f;
+	g_Mtrl2.Power = 5.0f;
+
+	A vertex
+	pv[ 0] = D3DLVERTEX(Vector3(-1.0f, -1.0f, .25f), D3DXCOLOR(1,0,0,0));
+	pv[ 1] = D3DLVERTEX(Vector3(-1.0f,  1.0f, .25f), D3DXCOLOR(1,0,0,0));
+	pv[ 2] = D3DLVERTEX(Vector3( 1.0f,  1.0f, .25f), D3DXCOLOR(1,0,0,0));
+
+	pv[ 3] = D3DLVERTEX(Vector3(-1.0f, -1.0f, .25f), D3DXCOLOR(1,0,0,0));
+	pv[ 4] = D3DLVERTEX(Vector3( 1.0f,  1.0f, .25f), D3DXCOLOR(1,0,0,0));
+	pv[ 5] = D3DLVERTEX(Vector3( 1.0f, -1.0f, .25f), D3DXCOLOR(1,0,0,0));
+
+	B vertex
+	pv[ 0] = D3DLVERTEX(Vector3(1.0f, -1.0f, 1.25f),D3DXCOLOR(0,0,1,0));
+	pv[ 1] = D3DLVERTEX(Vector3(1.0f,  1.0f, 1.25f),D3DXCOLOR(0,1,0,0));
+	pv[ 2] = D3DLVERTEX(Vector3(3.0f,  1.0f, 1.25f),D3DXCOLOR(0,0,1,0));
+
+	pv[ 3] = D3DLVERTEX(Vector3(1.0f, -1.0f, 1.25f),D3DXCOLOR(0,0,1,0));
+	pv[ 4] = D3DLVERTEX(Vector3(3.0f,  1.0f, 1.25f),D3DXCOLOR(0,1,1,0));
+	pv[ 5] = D3DLVERTEX(Vector3(3.0f, -1.0f, 1.25f),D3DXCOLOR(1,1,1,0));
+
+
+
+
+2. no normal, texture, material
+
+typedef struct D3DLVERTEX
+{
+	enum { FVF =  D3DFVF_XYZ | D3DFVF_TEX1 };
+	Vector3 v;
+	float tu, tv;
+	D3DLVERTEX(const Vector3 &v0, float tu0, float tv0)
+	{
+		v = v0;
+		tu = tu0;
+		tv = tv0;
+	}
+
+} D3DLVERTEX, *LPD3DLVERTEX;
+
+	// A vertex
+	pv[ 0] = D3DLVERTEX(Vector3(-1.0f, -1.0f, .25f), 0, 1);
+	pv[ 1] = D3DLVERTEX(Vector3(-1.0f,  1.0f, .25f), 0, 0);
+	pv[ 2] = D3DLVERTEX(Vector3( 1.0f,  1.0f, .25f), 1, 0);
+
+	pv[ 3] = D3DLVERTEX(Vector3(-1.0f, -1.0f, .25f), 0, 1);
+	pv[ 4] = D3DLVERTEX(Vector3( 1.0f,  1.0f, .25f), 1, 0);
+	pv[ 5] = D3DLVERTEX(Vector3( 1.0f, -1.0f, .25f), 1, 1);
+
+	// B vertex
+	pv[ 0] = D3DLVERTEX(Vector3(1.0f, -1.0f, 1.25f), 0, 1);
+	pv[ 1] = D3DLVERTEX(Vector3(1.0f,  1.0f, 1.25f), 0, 0);
+	pv[ 2] = D3DLVERTEX(Vector3(3.0f,  1.0f, 1.25f), 1, 0);
+
+	pv[ 3] = D3DLVERTEX(Vector3(1.0f, -1.0f, 1.25f), 0, 1);
+	pv[ 4] = D3DLVERTEX(Vector3(3.0f,  1.0f, 1.25f), 1, 0);
+	pv[ 5] = D3DLVERTEX(Vector3(3.0f, -1.0f, 1.25f), 1, 1);
+
+
+렌더링코드
+
+
+	g_pDevice->Clear( 0, 0, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(200,200,200), 1.0f, 0 );
+	g_pDevice->BeginScene();
+
+	g_pDevice->SetRenderState( D3DRS_LIGHTING, TRUE);
+    	g_pDevice->SetRenderState( D3DRS_AMBIENT, 0x00202020 );
+
+	g_pDevice->SetRenderState( D3DRS_NORMALIZENORMALS, TRUE );
+	g_pDevice->SetRenderState( D3DRS_SPECULARENABLE, TRUE );
+
+	g_pDevice->SetTextureStageState( 0, D3DTSS_ALPHAARG1, D3DTA_DIFFUSE );
+	g_pDevice->SetTextureStageState( 0, D3DTSS_ALPHAOP, D3DTOP_SELECTARG1 );
+	g_pDevice->SetRenderState( D3DRS_SRCBLEND, D3DBLEND_SRCALPHA );
+	g_pDevice->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA );
+
+	g_pDevice->SetMaterial( &g_Mtrl2 );
+	g_pDevice->SetTexture( 0, g_pTex2 );
+//	g_pDevice->SetTexture( 0, NULL );
+	g_pDevice->SetStreamSource( 0, g_pvtxBuff2, 0, sizeof(D3DLVERTEX) );
+	g_pDevice->SetFVF( D3DLVERTEX::FVF );
+	g_pDevice->DrawPrimitive( D3DPT_TRIANGLELIST, 0, 2 );
+
+	g_pDevice->SetRenderState( D3DRS_ALPHABLENDENABLE, TRUE);
+	g_pDevice->SetMaterial( &g_Mtrl1 );
+	g_pDevice->SetTexture( 0, g_pTex1 );
+//	g_pDevice->SetTexture( 0, NULL );
+	g_pDevice->SetStreamSource( 0, g_pvtxBuff, 0, sizeof(D3DLVERTEX) );
+	g_pDevice->SetFVF( D3DLVERTEX::FVF );
+	g_pDevice->DrawPrimitive( D3DPT_TRIANGLELIST, 0, 2 );
+//	g_pDevice->SetMaterial( &g_Mtrl2 );
+//	g_pMesh->DrawSubset( 0 );
+	g_pDevice->SetRenderState( D3DRS_ALPHABLENDENABLE, FALSE);
+
+	g_pDevice->EndScene();
+	g_pDevice->Present( 0, 0, 0, 0 );
+
+
+
+
+
+
+3. Normal Texture Lighting
+typedef struct D3DLVERTEX
+{
+	enum { FVF =  D3DFVF_XYZ | D3DFVF_NORMAL | D3DFVF_TEX1 };
+	Vector3 v;
+	Vector3 n;
+	float tu, tv;
+	D3DLVERTEX(const Vector3 &v0, const Vector3 &n0, float tu0, float tv0)
+	{
+		v = v0;
+		n = n0;
+		tu = tu0;
+		tv = tv0;
+	}
+} D3DLVERTEX, *LPD3DLVERTEX;
+
+	A material
+	g_Mtrl1.Diffuse = D3DXCOLOR( 1.0f, 1.0f, 1.0f, 1.0f );
+	g_Mtrl1.Ambient = D3DXCOLOR( 1.0f, 1.0f, 1.0f, 1.0f );
+	g_Mtrl1.Specular = D3DXCOLOR( 1.0f, 1.0f, 0.0f, 1.0f );
+	g_Mtrl1.Emissive = D3DXCOLOR( .0f, .0f, .0f, 1.0f );
+	g_Mtrl1.Power = 5.0f;
+
+	B material
+	g_Mtrl2.Diffuse = D3DXCOLOR( 1.0f, 1.0f, 1.0f, 1.0f );
+	g_Mtrl2.Ambient = D3DXCOLOR( 1.0f, 1.0f, 1.0f, 1.0f );
+	g_Mtrl2.Specular = D3DXCOLOR( 0.0f, 1.0f, 0.0f, 1.0f );
+	g_Mtrl2.Emissive = D3DXCOLOR( .0f, .0f, .0f, 1.0f );
+	g_Mtrl2.Power = 5.0f;
+
+	// A vertex
+	pv[ 0] = D3DLVERTEX(Vector3(-1.0f, -1.0f, .25f),Vector3(0,0,-1), 0, 1);
+	pv[ 1] = D3DLVERTEX(Vector3(-1.0f,  1.0f, .25f),Vector3(0,0,-1), 0, 0);
+	pv[ 2] = D3DLVERTEX(Vector3( 1.0f,  1.0f, .25f),Vector3(0,0,-1), 1, 0);
+
+	pv[ 3] = D3DLVERTEX(Vector3(-1.0f, -1.0f, .25f), Vector3(0,0,-1), 0, 1);
+	pv[ 4] = D3DLVERTEX(Vector3( 1.0f,  1.0f, .25f), Vector3(0,0,-1), 1, 0);
+	pv[ 5] = D3DLVERTEX(Vector3( 1.0f, -1.0f, .25f), Vector3(0,0,-1), 1, 1);
+
+	// B vertex
+	pv[ 0] = D3DLVERTEX(Vector3(1.0f, -1.0f, 1.25f), Vector3(0,0,-1), 0, 1);
+	pv[ 1] = D3DLVERTEX(Vector3(1.0f,  1.0f, 1.25f), Vector3(0,0,-1), 0, 0);
+	pv[ 2] = D3DLVERTEX(Vector3(3.0f,  1.0f, 1.25f), Vector3(0,0,-1), 1, 0);
+
+	pv[ 3] = D3DLVERTEX(Vector3(1.0f, -1.0f, 1.25f), Vector3(0,0,-1), 0, 1);
+	pv[ 4] = D3DLVERTEX(Vector3(3.0f,  1.0f, 1.25f), Vector3(0,0,-1), 1, 0);
+	pv[ 5] = D3DLVERTEX(Vector3(3.0f, -1.0f, 1.25f), Vector3(0,0,-1), 1, 1);
+
+
+

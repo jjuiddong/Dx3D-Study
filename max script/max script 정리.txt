@@ -1,0 +1,12 @@
+
+
+Max Script 정리
+
+
+- 텍스쳐 좌표와 버텍스 위치를 일괄적으로 가져오는 문제.
+
+getTVFace
+obj.numTVerts
+
+
+
