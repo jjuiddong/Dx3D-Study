@@ -56,7 +56,7 @@ bool InitDirectX(HWND hWnd);
 bool InitVertexBuffer();
 void Render(int timeDelta);
 bool ReadModelFile( const string &fileName, LPDIRECT3DVERTEXBUFFER9 &vtxBuff, int &vtxSize,  LPDIRECT3DINDEXBUFFER9 &idxBuff, int &faceSize );
-void ComputeNormals(LPDIRECT3DVERTEXBUFFER9 vtxBuff, int vtxSize,  LPDIRECT3DINDEXBUFFER9 idxBuff, int faceSize);
+void Spread();
 
 
 int APIENTRY WinMain(HINSTANCE hInstance, 
@@ -167,6 +167,10 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 			g_pDevice->SetRenderState(D3DRS_CULLMODE, flag? D3DCULL_CCW : D3DCULL_NONE);
 			g_pDevice->SetRenderState(D3DRS_FILLMODE, flag? D3DFILL_SOLID : D3DFILL_WIREFRAME);
 			flag = !flag;
+		}
+		if (wParam == VK_SPACE)
+		{
+			Spread();
 		}
 		break;
 
@@ -302,87 +306,6 @@ bool InitVertexBuffer()
 	idxBuff->Lock(0, 0, (void**)&indices, 0);
 	indices[ 0] = 0; indices[ 1] = 1; indices[ 2] = 2;
 	indices[ 3] = 0; indices[ 4] = 3; indices[ 5] = 1;
-
-
-
-	const int numFace = g_Mesh->GetNumFaces();
-	vector<int> adjInfo(numFace*3, 0);
-	g_Mesh->GenerateAdjacency(0.0, (DWORD*)&adjInfo[0]);
-
-	for (int i=0; i < numFace-1; ++i)
-	{
-		for (int k=0; k < 3; ++k)
-		{
-			const int adjFaceIdx = adjInfo[ i*3 + k];
-			if (adjFaceIdx < 0)
-				continue;
-
-			int selectVtxIdx = -1;
-			for (int m=0; m < 3; ++m)
-			{
-				const int correspondAdjFaceIdx = adjInfo[ adjFaceIdx*3 + m];
-				if (i == correspondAdjFaceIdx)
-				{
-					const int vtxIdxTable[] = {2,0,1};
-					selectVtxIdx = indices[ adjFaceIdx*3 + vtxIdxTable[ m]];
-					break;
-				}
-			}
-
-			if (selectVtxIdx < 0)
-				continue;
-
-			const int vtxIdxEdge1[3] = {0, 1, 2};
-			const int vtxIdxEdge2[3] = {1, 2, 0};
-			const int remainVtxIdx[3] = {2,0,1};
-			const int vtxIdx1 = indices[ i*3 + vtxIdxEdge1[ k]];
-			const int vtxIdx2 = indices[ i*3 + vtxIdxEdge2[ k]];
-			const int remIdx = indices[ i*3 + remainVtxIdx[ k]];
-
-			Vector3 contactPos;
-			{
-				Vector3 v1 = vertices[ vtxIdx2].p - vertices[ vtxIdx1].p;
-				Vector3 v2 = vertices[ selectVtxIdx].p  - vertices[ vtxIdx1].p;
-				v1.Normalize();
-				const float len = v2.Length();
-				v2.Normalize();
-				contactPos = vertices[ vtxIdx1].p +  v1*(v1.DotProduct(v2) * len);
-			}
-
-			Vector3 edgeNormal;
-			{
-				Vector3 v1 = vertices[ vtxIdx2].p - vertices[ vtxIdx1].p;
-				v1.Normalize();
-				Vector3 norm = v1.CrossProduct(Vector3(0,1,0));
-				norm.Normalize();
-
-				Vector3 v2 = vertices[ remIdx].p - vertices[ vtxIdx1].p;
-				v2.Normalize();
-
-				if (v2.DotProduct(norm) > 0)
-					norm = -norm;
-
-				edgeNormal = norm;
-			}
-
-			// rotate
-			Vector3 v1 = vertices[ selectVtxIdx].p  - contactPos;
-			v1.Normalize();
-			Quaternion quat;
-			quat.SetRotationArc(v1, edgeNormal);
-			Matrix44 mat = quat.GetMatrix();
-
-			Vector3 mutaualPos = vertices[ selectVtxIdx].p - contactPos;
-			Vector3 pos = mutaualPos * mat;
-			pos += contactPos;
-			//vertices[ selectVtxIdx].p = pos;
-
-			g_ani = true;
-			g_aniVtxIdx = selectVtxIdx;
-			g_aniSrcPos = vertices[ selectVtxIdx].p;
-			g_aniDestPos = pos;
-		}
-	}
 
 	vtxBuff->Unlock();
 	idxBuff->Unlock();
@@ -679,4 +602,101 @@ bool ReadModelFile( const string &fileName, LPDIRECT3DVERTEXBUFFER9 &vtxBuff, in
 	idxBuff->Unlock();
 
 	return true;
+}
+
+
+void Spread()
+{
+	LPDIRECT3DVERTEXBUFFER9 vtxBuff;
+	g_Mesh->GetVertexBuffer(&vtxBuff);
+
+	Vertex *vertices;
+	vtxBuff->Lock(0, 0, (void**)&vertices, 0);
+
+	LPDIRECT3DINDEXBUFFER9 idxBuff;
+	g_Mesh->GetIndexBuffer(&idxBuff);
+	WORD *indices;
+	idxBuff->Lock(0, 0, (void**)&indices, 0);
+
+	const int numFace = g_Mesh->GetNumFaces();
+	vector<int> adjInfo(numFace*3, 0);
+	g_Mesh->GenerateAdjacency(0.0, (DWORD*)&adjInfo[0]);
+
+	for (int i=0; i < numFace-1; ++i)
+	{
+		for (int k=0; k < 3; ++k)
+		{
+			const int adjFaceIdx = adjInfo[ i*3 + k];
+			if (adjFaceIdx < 0)
+				continue;
+
+			int selectVtxIdx = -1;
+			for (int m=0; m < 3; ++m)
+			{
+				const int correspondAdjFaceIdx = adjInfo[ adjFaceIdx*3 + m];
+				if (i == correspondAdjFaceIdx)
+				{
+					const int vtxIdxTable[] = {2,0,1};
+					selectVtxIdx = indices[ adjFaceIdx*3 + vtxIdxTable[ m]];
+					break;
+				}
+			}
+
+			if (selectVtxIdx < 0)
+				continue;
+
+			const int vtxIdxEdge1[3] = {0, 1, 2};
+			const int vtxIdxEdge2[3] = {1, 2, 0};
+			const int remainVtxIdx[3] = {2,0,1};
+			const int vtxIdx1 = indices[ i*3 + vtxIdxEdge1[ k]];
+			const int vtxIdx2 = indices[ i*3 + vtxIdxEdge2[ k]];
+			const int remIdx = indices[ i*3 + remainVtxIdx[ k]];
+
+			Vector3 contactPos;
+			{
+				Vector3 v1 = vertices[ vtxIdx2].p - vertices[ vtxIdx1].p;
+				Vector3 v2 = vertices[ selectVtxIdx].p  - vertices[ vtxIdx1].p;
+				v1.Normalize();
+				const float len = v2.Length();
+				v2.Normalize();
+				contactPos = vertices[ vtxIdx1].p +  v1*(v1.DotProduct(v2) * len);
+			}
+
+			Vector3 edgeNormal;
+			{
+				Vector3 v1 = vertices[ vtxIdx2].p - vertices[ vtxIdx1].p;
+				v1.Normalize();
+				Vector3 norm = v1.CrossProduct(Vector3(0,1,0));
+				norm.Normalize();
+
+				Vector3 v2 = vertices[ remIdx].p - vertices[ vtxIdx1].p;
+				v2.Normalize();
+
+				if (v2.DotProduct(norm) > 0)
+					norm = -norm;
+
+				edgeNormal = norm;
+			}
+
+			// rotate
+			Vector3 v1 = vertices[ selectVtxIdx].p  - contactPos;
+			v1.Normalize();
+			Quaternion quat;
+			quat.SetRotationArc(v1, edgeNormal);
+			Matrix44 mat = quat.GetMatrix();
+
+			Vector3 mutaualPos = vertices[ selectVtxIdx].p - contactPos;
+			Vector3 pos = mutaualPos * mat;
+			pos += contactPos;
+			//vertices[ selectVtxIdx].p = pos;
+
+			g_ani = true;
+			g_aniVtxIdx = selectVtxIdx;
+			g_aniSrcPos = vertices[ selectVtxIdx].p;
+			g_aniDestPos = pos;
+		}
+	}
+
+	vtxBuff->Unlock();
+	idxBuff->Unlock();
 }
