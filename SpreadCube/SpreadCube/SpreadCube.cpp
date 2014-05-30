@@ -25,6 +25,13 @@ POINT g_CurPos;
 bool g_LButtonDown = false;
 Matrix44 g_LocalTm;
 
+// animation
+bool g_ani = false;
+int g_aniVtxIdx = -1;
+Vector3 g_aniSrcPos;
+Vector3 g_aniDestPos;
+float g_aniAlpha = 0; // 0~1
+
 
 // 버텍스 구조체
 struct Vertex
@@ -368,10 +375,14 @@ bool InitVertexBuffer()
 			Vector3 mutaualPos = vertices[ selectVtxIdx].p - contactPos;
 			Vector3 pos = mutaualPos * mat;
 			pos += contactPos;
-			vertices[ selectVtxIdx].p = pos;
+			//vertices[ selectVtxIdx].p = pos;
+
+			g_ani = true;
+			g_aniVtxIdx = selectVtxIdx;
+			g_aniSrcPos = vertices[ selectVtxIdx].p;
+			g_aniDestPos = pos;
 		}
 	}
-
 
 	vtxBuff->Unlock();
 	idxBuff->Unlock();
@@ -433,11 +444,33 @@ void Render(int timeDelta)
 		//화면 청소가 성공적으로 이루어 졌다면... 랜더링 시작
 		g_pDevice->BeginScene();
 
+		if (g_Mesh)
+		{
+			if (g_ani)
+			{
+				if (g_aniAlpha > 1.f)
+				{
+					g_aniAlpha = 1.f;
+					g_ani = false;
+				}
+
+				LPDIRECT3DVERTEXBUFFER9 vtxBuff;
+				g_Mesh->GetVertexBuffer(&vtxBuff);
+				Vertex *vertices;
+				vtxBuff->Lock(0, 0, (void**)&vertices, 0);
+				Vector3 v = g_aniSrcPos.Interpolate(g_aniDestPos, g_aniAlpha);
+				vertices[ g_aniVtxIdx].p = v;
+				vtxBuff->Unlock();
+
+				g_aniAlpha += timeDelta * 0.0005f;
+			}
+		}
+
 		//r.SetTranslate(Vector3(0, 0, -498)); // teapot
 		g_pDevice->SetTransform(D3DTS_WORLD, (D3DXMATRIX*)&g_LocalTm);
-
 		g_pDevice->SetMaterial(&g_Mtrl);
-		g_Mesh->DrawSubset(0);
+		if (g_Mesh)
+			g_Mesh->DrawSubset(0);
 
 		//랜더링 끝
 		g_pDevice->EndScene();

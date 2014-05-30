@@ -139,3 +139,11 @@ bool Vector3::operator==( const Vector3 &rhs ) const
 {
 	return (x == rhs.x) && (y == rhs.y) && (z == rhs.z);
 }
+
+
+Vector3 Vector3::Interpolate( const Vector3 &v, const float alpha) const
+{
+	return Vector3(x + (alpha * ( v.x - x ) ),
+		y + (alpha * ( v.y - y ) ),
+		z + (alpha * ( v.z - z ) ) );
+}

@@ -15,6 +15,7 @@ struct Vector3
 	void Normalize();
 	float	DotProduct( const Vector3& v ) const;
 	Vector3 CrossProduct( const Vector3& v ) const;
+	Vector3 Interpolate( const Vector3 &v, const float alpha) const;
 	
 	Vector3 operator + () const;
 	Vector3 operator - () const;
