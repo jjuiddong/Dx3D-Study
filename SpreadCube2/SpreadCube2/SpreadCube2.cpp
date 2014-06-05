@@ -442,8 +442,6 @@ void Spread()
 
 				Vector3 norm = v1.CrossProduct(vertices[ vtxIdx1].n);
 				norm.Normalize();				
-				//Vector3 norm = v1.CrossProduct(Vector3(0,1,0));
-				//norm.Normalize();
 				
 				Vector3 v2 = vertices[ remIdx].p - vertices[ vtxIdx1].p;
 				v2.Normalize();
