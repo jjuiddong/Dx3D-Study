@@ -9,14 +9,14 @@
 #if !defined(__SOUND_LIB_H__)
 #define __SOUND_LIB_H__
 
-
+/*
 //////////////////////////////////////////////////////////////////////////////////
 // DirectMusic
 
 #include <dmksctrl.h>
-#include <dmusici.h>
+//#include <dmusici.h>
 #include <dmusicc.h>
-#include <dmusicf.h>
+//#include <dmusicf.h>
 
 // midi object state defines
 #define MIDI_NULL				0   // this midi object is not loaded
@@ -77,6 +77,6 @@ BOOL DSound_Load_WAV( char *filename, LPDSOUND_WAV pDSBuf );
 
 // global variable
 extern LPDIRECTSOUND		g_lpDS;	// directsound interface pointer
-
+/**/
 
 #endif // __SOUND_LIB_H__

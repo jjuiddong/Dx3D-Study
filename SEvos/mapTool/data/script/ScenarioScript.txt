@@ -1,0 +1,152 @@
+
+// ScenarioScript 예제  2007-12-27
+
+include "script//ScriptDefine.txt"
+
+import float flag1 : 10000
+
+// Mission1 Scenario
+
+// 맵설정
+SetTerrain( "SaveMap\\ax.map" )
+
+g_event_flag = 0
+g_event1_flag = 1 
+g_event2_flag = 1 
+
+time = 0
+eventtime = 100
+
+// 주인공 설정
+// 주인공의 모델데이타, 맵에서의 위치를 설정한다.
+hero = CreateHero(  "hero",   "model//bmm.txt", "model//character_1.txt", "model//weapon.txt", 
+	      	    "script//combo.txt" )
+hero.SetPos( 0, 0 )
+
+time = 100 * (10 + eventtime) / 10
+DbgPrint( time )
+
+arg = GetArgument()
+DbgPrintStr( arg )
+
+if( time == 1100 )
+{
+	DbgPrint( Runaway )
+}
+else
+{
+	DbgPrint( 0 )
+}
+
+cnt = 0
+while( cnt < 10 )
+{
+	DbgPrint( cnt )
+	cnt = cnt + 1
+}
+
+g_event_flag = 1
+event_count = 0
+
+
+DbgPrintStr( "이벤트 프로시져 시작" )
+
+// 스크립트는 종료되지않고 멈춘다.
+// 이유는 주인공이 마을출구 이벤트가 발생해야 미션이 끝나기 때문이며
+// 이벤트 검사를 위해서는 스크립트는 종료되지않아야 하기 때문이다.
+ScriptWait
+
+
+// 주인공이 마을출구에 도착하면 이벤트가 발생한다.
+Event( g_event1_flag == 1 && (hero.x < 100 && hero.x > 50 && hero.y > 50) )
+{
+	DbgPrintStr( "Event1" )
+
+	g_event1_flag = 0
+
+	enemy1 = CreateEnemy( "enmey_1", "model//bmm2.txt", "model//character_1.txt", "model//weapon.txt", 
+			      "script//combo.txt", "script//ai1.txt" )
+	enemy2 = CreateEnemy( "enmey_2", "model//bmm2.txt", "model//character_1.txt", "model//weapon.txt", 
+			      "script//combo.txt", "script//ai1.txt" )
+	enemy3 = CreateEnemy( "enmey_3", "model//bmm2.txt", "model//character_1.txt", "model//weapon.txt", 
+			      "script//combo.txt", "script//ai1.txt" )
+
+//	enemy4 = CreateEnemy( "enmey_4", "model//bmm.txt", "model//character_1.txt", "model//weapon.txt", 
+//			      "script//combo.txt", "script//ai1.txt" )
+//	enemy5 = CreateEnemy( "enmey_5", "model//bmm.txt", "model//character_1.txt", "model//weapon.txt", 
+//			      "script//combo.txt", "script//ai1.txt" )
+//	enemy6 = CreateEnemy( "enmey_6", "model//bmm.txt", "model//character_1.txt", "model//weapon.txt", 
+//			      "script//combo.txt", "script//ai1.txt" )
+//	enemy7 = CreateEnemy( "enmey_7", "model//bmm.txt", "model//character_1.txt", "model//weapon.txt", 
+//			      "script//combo.txt", "script//ai1.txt" )
+
+	enemy1.SetPos( 50,  100 )
+	enemy2.SetPos( 50,  10 )
+	enemy3.SetPos( 100, 100 )
+}
+
+
+Event( g_event2_flag == 1 && (hero.x < 400 && hero.x > 350 && hero.y > 50) )
+{
+	DbgPrintStr( "Event1" )
+
+	g_event2_flag = 0
+
+	enemy4 = CreateEnemy( "enmey_4", "model//bmm.txt", "model//character_1.txt", "model//weapon.txt", 
+			      "script//combo.txt", "script//ai1.txt" )
+	enemy5 = CreateEnemy( "enmey_5", "model//bmm.txt", "model//character_1.txt", "model//weapon.txt", 
+			      "script//combo.txt", "script//ai1.txt" )
+	enemy6 = CreateEnemy( "enmey_6", "model//bmm.txt", "model//character_1.txt", "model//weapon.txt", 
+			      "script//combo.txt", "script//ai1.txt" )
+	enemy7 = CreateEnemy( "enmey_7", "model//bmm.txt", "model//character_1.txt", "model//weapon.txt", 
+			      "script//combo.txt", "script//ai1.txt" )
+
+	enemy4.SetPos( 350,  40 )
+	enemy5.SetPos( 350,  80 )
+	enemy6.SetPos( 450,  40 )
+	enemy7.SetPos( 450,  80 )
+
+}
+
+
+Event( hero.x > 1000 && hero.y > 1000 )
+{
+	DbgPrintStr( "Event 2" )
+
+	// 이벤트 스크립트 실행
+	ExecuteScript( "Story Script file path" )
+
+	// Mission1 전투 스크립트 실행
+	ExecuteScript( "Battle Script file path" )
+
+	// 주인공이 전투씬에서 죽었다면 게임이 종료된다.
+	if( 1 == hero.IsDead() )
+	{
+		// 열려있는 모든 스크립트를 종료한다.
+		ScriptExit
+	}
+	else
+	{
+		// 첫번째 미션이 종료된다.
+		// 이후 이 스크립트를 로딩한 스크립트에게 권한을 맡기게된다.
+		ScriptEnd
+	}
+}
+
+Event( g_event_flag == 1 )
+{
+	event_count = event_count + 1
+	if( (event_count % 1000) == 0 )
+	{
+//		DbgPrintStr( "Event 3" )
+//		DbgPrint( event_count )
+	}
+
+	if( event_count == 10000 )
+	{
+		// 이벤트 스크립트 실행
+		// ExecuteScript( "ScenarioScript.txt" )
+	}
+
+}
+

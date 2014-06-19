@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SEvosMapTool", "SEvosMapTool\SEvosMapTool.vcproj", "{044F7582-EB8F-4670-9F0D-DE2F8993A266}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleEvos", "SimpleEvos\SimpleEvos.vcproj", "{46C3824A-2C35-451C-B372-B66868855F55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{044F7582-EB8F-4670-9F0D-DE2F8993A266}.Debug|Win32.ActiveCfg = Debug|Win32
+		{044F7582-EB8F-4670-9F0D-DE2F8993A266}.Debug|Win32.Build.0 = Debug|Win32
+		{044F7582-EB8F-4670-9F0D-DE2F8993A266}.Release|Win32.ActiveCfg = Release|Win32
+		{044F7582-EB8F-4670-9F0D-DE2F8993A266}.Release|Win32.Build.0 = Release|Win32
+		{46C3824A-2C35-451C-B372-B66868855F55}.Debug|Win32.ActiveCfg = Debug|Win32
+		{46C3824A-2C35-451C-B372-B66868855F55}.Debug|Win32.Build.0 = Debug|Win32
+		{46C3824A-2C35-451C-B372-B66868855F55}.Release|Win32.ActiveCfg = Release|Win32
+		{46C3824A-2C35-451C-B372-B66868855F55}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

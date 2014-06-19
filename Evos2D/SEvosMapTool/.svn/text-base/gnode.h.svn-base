@@ -1,0 +1,54 @@
+
+#ifndef __GNODE_H__
+#define __GNODE_H__
+
+#include <list>
+#include "global.h"
+
+
+class CGedge;
+class CGnode
+{
+public:
+	CGnode() {}
+	virtual ~CGnode() {}
+
+	typedef std::list<CGedge*> EdgeList;
+	typedef EdgeList::iterator EdgeItor;
+
+protected:
+	EdgeList m_EdgeList;
+	Vector2D m_Position;
+
+public:
+	BOOL AddEdge( CGedge *pedge );
+	BOOL RemoveEdge( CGedge *pedge );
+	BOOL IsExistEdge( CGedge *pedge );
+	void SetPosition(const Vector2D &pos) { m_Position = pos; }
+	const Vector2D& GetPosition() { return m_Position; }
+	void Clear();
+
+	EdgeList* GetEdgeList() { return &m_EdgeList; }
+
+};
+
+
+
+#include <functional>
+#include <algorithm>
+
+// Algorithm을 통해서 GraphNode 를 찾기위한 클래스다.
+class CSearchCGnode: public std::unary_function<CGnode*, bool>
+{
+public:
+	CSearchCGnode(CGnode *p):m_pSearchNode(p) {}
+	CGnode *m_pSearchNode;
+	bool operator ()(CGnode *t) const
+	{
+		if (m_pSearchNode == t)
+			return true;
+		return false;
+	}
+};
+
+#endif //__GNODE_H__

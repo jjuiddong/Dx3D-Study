@@ -1,0 +1,323 @@
+
+#include "stdafx.h"
+#include "mapeditor.h"
+
+using namespace std;
+
+
+CMapEditor::CMapEditor() 
+{
+	m_Offset = Vector2D(0,0);
+
+	Create(MAP_WIDTH, MAP_HEIGHT, MAP_CELL_SIZE );
+
+}
+
+
+CMapEditor::~CMapEditor()
+{
+	Clear();
+
+}
+
+
+BOOL CMapEditor::AddBlock( CBlock *pblock )
+{
+	if (!pblock) return FALSE;
+
+	pblock->CalculateNormal();
+	m_BlockList.push_back(pblock);
+	return TRUE;
+}
+
+BOOL CMapEditor::DelBlock( int index )
+{
+	BlockItor itor = GetBlockItor(index);
+	if (itor == m_BlockList.end()) return FALSE;
+
+	CBlock *p = *itor;
+	delete p;
+
+	m_BlockList.erase(itor);
+	return TRUE;
+}
+
+
+CBlock* CMapEditor::GetBlock( int index )
+{
+	BlockItor itor = GetBlockItor(index);
+	if (itor == m_BlockList.end()) return FALSE;
+	return *itor;
+}
+
+
+CBlock* CMapEditor::FindBlock( Vector2D *pPoint ) 
+{
+
+	return NULL;
+}
+
+
+void CMapEditor::Clear()
+{
+	BlockItor itor = m_BlockList.begin();
+	while (itor != m_BlockList.end())
+	{
+		CBlock *p = *itor++;
+		delete p;
+	}
+	m_BlockList.clear();
+
+
+}
+
+
+CMapEditor::BlockItor CMapEditor::GetBlockItor( int index )
+{
+	int i = 0;
+	BlockItor itor = m_BlockList.begin();
+	while (itor != m_BlockList.end() && i <= index)
+	{
+		if (i == index)
+		{
+			return itor;
+		}
+		++i;
+		++itor;
+	}
+	return m_BlockList.end();
+}
+
+
+void CMapEditor::Update(float timeDelta)
+{
+
+
+}
+
+
+void CMapEditor::Render()
+{
+	CEvosMap::Render();
+
+	BlockItor itor = m_BlockList.begin();
+	while (itor != m_BlockList.end())
+	{
+		(*itor)->Render();
+		++itor;
+	}
+}
+
+
+//------------------------------------------------------------------------
+// 파일에 저장한다.
+// [2011/1/17 jjuiddong]
+//------------------------------------------------------------------------
+BOOL CMapEditor::Write( char *filename )
+{
+	ofstream os(filename);
+	if (!os.is_open()) return FALSE;
+
+	os << m_MapWidth << endl;
+	os << m_MapHeight<< endl;
+	os << m_CellSize << endl;
+
+	os << m_BlockList.size();
+	BlockItor itor = m_BlockList.begin();
+	while (itor != m_BlockList.end())
+	{
+		(*itor)->Write(os);
+		++itor;
+	}
+
+	os << endl;
+
+	m_Graph.Save(os);
+
+	os.close();
+
+	return TRUE;
+}
+
+
+//
+// Map정보 파일을 읽는다.
+BOOL CMapEditor::Read( char *filename )
+{
+	ifstream is(filename);
+	if (!is.is_open()) return FALSE;
+
+	is >> m_MapWidth;
+	is >> m_MapHeight;
+	int cellSize;
+	is >> cellSize;
+	m_NumCellX = m_MapWidth / cellSize;
+	m_NumCellY = m_MapHeight / cellSize;
+
+	int blockSize;
+	is >> blockSize;
+
+	for (int i=0; i < blockSize; ++i)
+	{
+		CBlock *pblock = new CBlock();
+		pblock->Read(is);
+		m_BlockList.push_back(pblock);
+	}
+
+	m_Graph.Load(is);
+
+	is.close();
+
+	return TRUE;
+}
+
+
+//
+//
+void CMapEditor::Reset()
+{
+	Clear();
+	CEvosMap::Clear();
+}
+
+
+//
+//
+BOOL CMapEditor::GenerateNaviMap()
+{
+	CEvosMap::Clear();
+
+	const int nodeTableSize = (MAP_WIDTH / MAP_CELL_SIZE) * (MAP_HEIGHT/ MAP_CELL_SIZE);
+	int *nodeTable = new int[nodeTableSize];
+	for (int i=0; i < nodeTableSize; ++i)
+		nodeTable[ i] = -1;
+
+	for (float x = MAP_CELL_SIZE / 2.f; x <= (float)MAP_WIDTH; x+=MAP_CELL_SIZE)
+	{
+		for (float y = MAP_CELL_SIZE / 2.f; y < (float)MAP_HEIGHT; y+=MAP_CELL_SIZE)
+		{
+			Vector2D pos(x,y);
+			if (!IsInBlock(pos))
+			{
+				const int nodeId = m_Graph.AddNode(NavGraphNode<>(m_Graph.GetNextFreeNodeIndex(), pos));
+				const int nodeIndex = GetPositionToNodeIndex(pos);
+				nodeTable[ nodeIndex] = nodeId;
+
+				GenerateNode(m_Graph, nodeTable, nodeId);
+				return TRUE;
+			}
+		}
+	}	
+
+	delete[] nodeTable;
+	return TRUE;
+}
+
+
+//
+//
+void CMapEditor::GenerateNode(GraphType &graph, int *nodeTable, int from)
+{
+	Vector2D table[] = {
+		Vector2D(-(float)MAP_CELL_SIZE, -(float)MAP_CELL_SIZE),
+		Vector2D(0.f,					-(float)MAP_CELL_SIZE),
+		Vector2D((float)MAP_CELL_SIZE,  -(float)MAP_CELL_SIZE),
+		Vector2D(-(float)MAP_CELL_SIZE, 0.f),
+		Vector2D((float)MAP_CELL_SIZE,  0.f),
+		Vector2D(-(float)MAP_CELL_SIZE, (float)MAP_CELL_SIZE),
+		Vector2D(0.f,					(float)MAP_CELL_SIZE),
+		Vector2D((float)MAP_CELL_SIZE,  (float)MAP_CELL_SIZE),
+	};
+	const int tableSize = sizeof(table) / sizeof(Vector2D);
+
+	for (int i=0; i < tableSize; ++i)
+	{
+		Vector2D pos = table[i];
+		pos += m_Graph.GetNode(from).Pos();
+
+		if (pos.x < 0.f || pos.y < 0.f) continue;
+		if (pos.x > (MAP_WIDTH-MAP_CELL_SIZE/2.f) || pos.y > (MAP_HEIGHT-MAP_CELL_SIZE/2.f)) continue;
+
+		if (IsInBlock(pos)) 
+		{
+			continue;
+		}
+
+		const double cost = m_Graph.GetNode(from).Pos().Distance(table[i]);
+		const int nodeIndex = GetPositionToNodeIndex(pos);
+		int toNodeId = 0;
+		if (nodeTable[ nodeIndex] != -1)
+		{
+			toNodeId = nodeTable[ nodeIndex];
+
+			// from 노드에서 currentNode 까지 edge를 추가한다.
+			// from -> to
+			if (!IsCrossPoint(from, toNodeId))
+			{
+				GraphType::EdgeType fromEdge(m_Graph.GetNode(from).Index(), toNodeId, cost);
+				graph.AddEdge(fromEdge);
+			}
+		} 
+		else 
+		{
+			toNodeId = m_Graph.AddNode(NavGraphNode<>(m_Graph.GetNextFreeNodeIndex(), pos));
+			nodeTable[ nodeIndex] = toNodeId;
+
+			// from 노드에서 currentNode 까지 edge를 추가한다.
+			// from -> to
+			if (!IsCrossPoint(from, toNodeId))
+			{
+				GraphType::EdgeType fromEdge(m_Graph.GetNode(from).Index(), toNodeId, cost);
+				graph.AddEdge(fromEdge);
+			}
+			GenerateNode(graph, nodeTable, toNodeId);
+		}
+	}
+}
+
+
+//
+// pos가 Block 안에 있다면 true를 리턴한다.
+BOOL CMapEditor::IsInBlock(const Vector2D &pos)
+{
+	BlockItor itor = m_BlockList.begin();
+	while (itor != m_BlockList.end())
+	{
+		if ((*itor)->IsInBlock(&pos)) 
+		{
+			return TRUE;
+		}
+		++itor;
+	}
+	return FALSE;
+}
+
+
+//
+// Position 정보값으로 Index 값을 계산한다.
+int CMapEditor::GetPositionToNodeIndex(const Vector2D &pos)
+{
+	const int nodeIndex = (int)(pos.x / (float)MAP_CELL_SIZE) + ((int)(pos.y / (float)MAP_CELL_SIZE) * MAP_NUM_CELL_X);
+	return nodeIndex;
+}
+
+
+//
+// fromNode 에서 toNode 사이에 블럭으로 가려져 있다면 true 를 리턴한다.
+BOOL CMapEditor::IsCrossPoint(int fromNode, int toNode)
+{
+	NavGraphNode<> &from = m_Graph.GetNode(fromNode);
+	NavGraphNode<> &to = m_Graph.GetNode(toNode);
+
+	BlockItor itor = m_BlockList.begin();
+	while (itor != m_BlockList.end())
+	{
+		if ((*itor)->IsCrossPoint(from.Pos(), to.Pos()))
+		{
+			return TRUE;
+		}
+		++itor;
+	}
+
+	return FALSE;
+}

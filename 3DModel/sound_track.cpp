@@ -6,7 +6,7 @@
 // volume conver micro...
 #define DSVOLUME_TO_DB(volume) ((DWORD)(-30*(100 - volume)))
 
-
+/*
 
 ///////////////////////////////////////////////////////////////////////////////////
 //------------------------------
@@ -229,20 +229,19 @@ BOOL CTrack_Mid::Play( BOOL bLoop )
 	// play sound based on id
 	if( m_DMBuffer.dm_segment && m_DMBuffer.state != MIDI_NULL )
 	{
-/*
+
 		// if there is an active midi then stop it
-		if( m_iPlayID !=- 1 )
-			DMusic_Stop( m_iPlayID );
-/**/
+		//if( m_iPlayID !=- 1 )
+		//	DMusic_Stop( m_iPlayID );
 
 		// play segment and force tracking of state variable
 		g_Perf->PlaySegment( m_DMBuffer.dm_segment, 0, 0, &m_DMBuffer.dm_segstate );
 		m_DMBuffer.state = MIDI_PLAYING;
 
-/*
+
 		// set the active midi segment
-		m_iPlayID = id;
-/**/
+		//m_iPlayID = id;
+
 
 		return TRUE;
 	}  // end if
@@ -519,3 +518,4 @@ BOOL CTrack_Adpcm::Delete_Sound()
 
 	return TRUE;
 }
+/**/

@@ -1,0 +1,117 @@
+
+#ifndef __NAVIGRAPHUTILITY_H__
+#define __NAVIGRAPHUTILITY_H__
+
+
+#include <iostream>
+
+#include "common/misc/Cgdi.h"
+#include "common/misc/utils.h"
+#include "common/misc/Stream_Utility_Functions.h"
+#include "common/Graph/GraphAlgorithms.h"
+#include "common/Graph/AStarHeuristicPolicies.h"
+
+#include "navigraph.h"
+
+
+//--------------------------- GraphHelper_CreateGrid --------------------------
+//
+//  creates a graph based on a grid layout. This function requires the 
+//  dimensions of the environment and the number of cells required horizontally
+//  and vertically 
+//-----------------------------------------------------------------------------
+void GraphUtil_CreateGrid(NaviGraph& graph,
+							int cySize,
+							int cxSize,
+							int NumCellsY,
+							int NumCellsX)
+{ 
+	//need some temporaries to help calculate each node center
+	double CellWidth  = (double)cySize / (double)NumCellsX;
+	double CellHeight = (double)cxSize / (double)NumCellsY;
+
+	double midX = CellWidth/2;
+	double midY = CellHeight/2;
+
+	//first create all the nodes
+	for (int row=0; row<NumCellsY; ++row)
+	{
+		for (int col=0; col<NumCellsX; ++col)
+		{
+			CGnode *pnode = new CGnode();
+			pnode->SetPosition(	Vector2D(midX + (col*CellWidth), midY + (row*CellHeight)));
+			graph.AddNode(pnode);
+//			graph.AddNode(NavGraphNode<>(graph.GetNextFreeNodeIndex(),
+//				Vector2D(midX + (col*CellWidth),
+//				midY + (row*CellHeight))));
+
+		}
+	}
+	//now to calculate the edges. (A position in a 2d array [x][y] is the
+	//same as [y*NumCellsX + x] in a 1d array). Each cell has up to eight
+	//neighbours.
+	for (int row=0; row<NumCellsY; ++row)
+	{
+		for (int col=0; col<NumCellsX; ++col)
+		{
+//			GraphHelper_AddAllNeighboursToGridNode(graph, row, col, NumCellsX, NumCellsY);
+		}
+	}
+}  
+/**/
+
+
+
+//------------ GraphHelper_AddAllNeighboursToGridNode ------------------
+//
+//  use to add he eight neighboring edges of a graph node that 
+//  is positioned in a grid layout
+//------------------------------------------------------------------------
+template <class graph_type>
+void GraphUtil_AddAllNeighboursToGridNode(NaviGraph& graph,
+											int         row,
+											int         col,
+											int         NumCellsX,
+											int         NumCellsY)
+{   
+	for (int i=-1; i<2; ++i)
+	{
+		for (int j=-1; j<2; ++j)
+		{
+			int nodeX = col+j;
+			int nodeY = row+i;
+
+			//skip if equal to this node
+			if ( (i == 0) && (j==0) ) continue;
+
+			//check to see if this is a valid neighbour
+			if (ValidNeighbour(nodeX, nodeY, NumCellsX, NumCellsY))
+			{
+				//calculate the distance to this node
+				Vector2D PosNode      = graph.GetNode(row*NumCellsX+col).Pos();
+				Vector2D PosNeighbour = graph.GetNode(nodeY*NumCellsX+nodeX).Pos();
+
+				double dist = PosNode.Distance(PosNeighbour);
+
+				//this neighbour is okay so it can be added
+				graph_type::EdgeType NewEdge(row*NumCellsX+col,
+					nodeY*NumCellsX+nodeX,
+					dist);
+				graph.AddEdge(NewEdge);
+
+				//if graph is not a diagraph then an edge needs to be added going
+				//in the other direction
+				if (!graph.isDigraph())
+				{
+					graph_type::EdgeType NewEdge(nodeY*NumCellsX+nodeX,
+						row*NumCellsX+col,
+						dist);
+					graph.AddEdge(NewEdge);
+				}
+			}
+		}
+	}
+}
+
+
+#endif // __NAVIGRAPHUTILITY_H__

@@ -1,0 +1,153 @@
+
+// 인공지능 스크립트 예제  2008-02-27
+
+include "script//ScriptDefine.txt"
+
+import float flag1 : 1000
+
+
+DbgPrintStr( "인공지능 스크립트 시작" )
+DbgPrintStr( GetArgument() )
+
+me = GetAI( GetArgument() )
+hero = GetAI( "hero" )
+
+me.state = Wait
+flag_runaway = 0
+
+while( me.IsDead() == 0 )
+{
+	if( me.state == Wait )
+	{
+		if( me.distance < 50 )
+		{
+			me.ChangeAIState( Watch )
+		}
+		else if( me.elapse > 3000 )
+		{
+			me.ChangeAIState( Watch )
+		}
+	}
+
+	if( me.state == Watch )
+	{
+		DbgPrintStr( "Watch 상태" )
+		if( me.distance < 50 )
+		{
+			me.ChangeAIState( OutMove )
+		}
+		else if( me.distance > 100 )
+		{
+			me.ChangeAIState( InMove )
+		}
+		if( me.elapse > 10000 )
+		{
+			me.ChangeAIState( Chase )
+		}
+		if( hero.hp < 60 )
+		{
+			me.ChangeAIState( Chase )
+		}
+	}
+
+	if( me.state == OutMove )
+	{
+		DbgPrintStr( "OutMove 상태" )
+		if( me.distance < me.attack_distance + 20 )
+		{
+			me.ChangeAIState( Chase )
+		}
+		if( me.elapse > 10000 )
+		{
+			me.ChangeAIState( InMove )
+		}
+	}
+
+	if( me.state == InMove )
+	{
+		DbgPrintStr( "InMove 상태" )
+		if( me.distance < me.attack_distance + 20 )
+		{
+			me.ChangeAIState( Chase )
+		}
+		if( me.elapse > 10000 )
+		{
+			me.ChangeAIState( Chase )
+		}
+	}
+
+	if( me.state == Chase )
+	{
+		DbgPrintStr( "Chase 상태" )
+		if( me.attack_distance > me.distance + 10 )
+		{
+			if( me.level > 3 )
+			{
+				me.ChangeAIState( ComboAttack )
+			}
+			else
+			{
+				me.ChangeAIState( Attack )
+			}
+		}
+		if( me.attack_distance + 50 < me.distance )
+		{
+			me.ChangeAIState( InMove )
+		}
+	}
+
+	if( me.state == Attack )
+	{
+		DbgPrintStr( "Attack 상태" )
+
+		if( (me.hp < 40) && (flag_runaway == 0) )
+		{
+			flag_runaway = 1
+			me.ChangeAIState( Runaway )
+		}
+		if( me.attack_distance + 50 < me.distance )
+		{
+			me.ChangeAIState( Watch )
+		}
+		else if( me.attack_distance < me.distance )
+		{
+			me.ChangeAIState( Chase )
+		}
+	}
+
+	if( me.state == ComboAttack )
+	{
+		DbgPrintStr( "ComboAttack 상태" )
+
+		if( me.attack_distance < me.distance )
+		{
+			me.ChangeAIState( Chase )
+		}
+	}
+
+	if( me.state == AttackWait )
+	{
+		DbgPrintStr( "AttackWait 상태" )
+
+		if( me.elapse > 2000 )
+		{
+			me.ChangeAIState( Chase )
+		}
+	}
+
+	if( me.state == Runaway )
+	{
+		DbgPrintStr( "Runaway 상태" )
+		if( me.distance > 40 )
+		{
+			me.ChangeAIState( Watch )
+		}
+	}
+
+}
+
+me.ChangeAIState( Dead )
+
+DbgPrintStr( "인공지능 스크립트 종료" )
+ScriptEnd
+

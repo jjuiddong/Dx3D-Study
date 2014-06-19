@@ -62,7 +62,7 @@ BOOL CScene::Create( SScene *pScene, CScene *pParent ) // pParent=NULL
 	}
 
 	// 자식 씬 생성
-	for( i=0; i < pScene->ssize; ++i )
+	for( int i=0; i < pScene->ssize; ++i )
 	{
 		SScene *ps = &pScene->ps[ i];
 		CScene *s = FindClass( ps->id );

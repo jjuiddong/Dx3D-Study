@@ -1,0 +1,10 @@
+GPJ
+
+$ CONTROL type, id, visible, filename, x,y,w,h, wc, hc
+
+$ 매인화면
+SCENE 4 0
+{
+	SCENECOUNT 0
+
+}

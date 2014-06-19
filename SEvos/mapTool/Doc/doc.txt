@@ -1,0 +1,21 @@
+
+CMapTool2Dlg
+	- 매인 다이얼로그
+
+CMap
+	- CQuadTree
+CMapEditor
+
+CFrustum
+	- projection matrix 값이 바뀔때마다 설정된다.
+
+
+
+CBasePanelFrame
+CTilePanel <global>
+CTerrainPanel <global>
+CTabBase
+	- CTilePanel <add>
+	- CTerrainPanel <add>
+
+

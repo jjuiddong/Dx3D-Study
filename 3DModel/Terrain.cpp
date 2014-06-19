@@ -67,7 +67,7 @@ BOOL CTerrain::CreateTile()
 
 			m_pBlockVB[i]->Lock(0, 0, (void**)&vertex, 0);
 			
-			for( j = 0 ; j < m_pTile->pTile[i].iBlockSize ; j ++)
+			for( int j = 0 ; j < m_pTile->pTile[i].iBlockSize ; j ++)
 			{
 				*vertex++ = m_pTile->pTile[i].sBlock[j];	
 			}
@@ -79,7 +79,7 @@ BOOL CTerrain::CreateTile()
 	}
 
 	// 인덱스 버퍼 생성
-	if(FAILED(g_pDevice->CreateIndexBuffer( pow(m_pTile->iDetail,2)*sizeof(MYINDEX)*2,
+	if(FAILED(g_pDevice->CreateIndexBuffer( pow(m_pTile->iDetail,2.f)*sizeof(MYINDEX)*2,
 		0, D3DFMT_INDEX16, D3DPOOL_MANAGED, &m_pIB, NULL)))
 		return FALSE;
 
@@ -313,7 +313,7 @@ void CTerrain::Render()
 	{
 		g_pDevice->SetStreamSource(0, m_pVB[i], 0, sizeof(SVtxNormTex));
 		g_pDevice->SetIndices( m_pIB );
-		g_pDevice->DrawIndexedPrimitive( D3DPT_TRIANGLELIST, 0, 0, m_pTile->pTile[i].iVtxSize, 0, 2*pow(m_pTile->iDetail, 2));
+		g_pDevice->DrawIndexedPrimitive( D3DPT_TRIANGLELIST, 0, 0, m_pTile->pTile[i].iVtxSize, 0, 2*pow(m_pTile->iDetail, 2.f));
 	}
 
 	// 알파 텍스처 설정
@@ -337,7 +337,7 @@ void CTerrain::Render()
 	g_pDevice->SetRenderState( D3DRS_ALPHABLENDENABLE,   TRUE );
 
 	// 덮어 쓸 타일 출력
-	for(i = 0 ; i < m_pTile->iTileCount ; i++)
+	for(int i = 0 ; i < m_pTile->iTileCount ; i++)
 	{
 		/*
 		if( m_pOverTex[i] != NULL )
@@ -349,7 +349,7 @@ void CTerrain::Render()
 		g_pDevice->SetTexture(2, m_pOverTex[0]);
 		g_pDevice->SetStreamSource(0, m_pVB[i], 0, sizeof(SVtxNormTex));
 		g_pDevice->SetIndices( m_pIB );
-		g_pDevice->DrawIndexedPrimitive( D3DPT_TRIANGLELIST, 0, 0, m_pTile->pTile[i].iVtxSize, 0, 2*pow(m_pTile->iDetail, 2));
+		g_pDevice->DrawIndexedPrimitive( D3DPT_TRIANGLELIST, 0, 0, m_pTile->pTile[i].iVtxSize, 0, 2*pow(m_pTile->iDetail, 2.f));
 		
 	}
 

@@ -1,0 +1,353 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 한국어 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 18, 1\r\n"
+    "#pragma code_page(949)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\MapTool2.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.kor\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\MapTool2.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG  0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "MapTool2 정보"
+FONT 9, "굴림"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "MapTool2 버전 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2009",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "확인",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_DLG_MODEL DIALOGEX 0, 0, 119, 283
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 10, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Object Info",IDC_STATIC,0,217,119,65
+    CONTROL         "",IDC_MODELLIST_RECT,"Static",SS_BLACKFRAME,0,7,119,108
+END
+
+IDD_DLG_TERRAIN DIALOGEX 0, 0, 106, 399
+STYLE DS_SETFONT | WS_CHILD
+FONT 9, "굴림", 0, 0, 0x0
+BEGIN
+    CONTROL         "Slider1",IDC_SLIDER_HOFFSET,"msctls_trackbar32",TBS_AUTOTICKS | WS_TABSTOP,3,115,93,15
+    CONTROL         "Edit Terrain Mode",IDC_CHECK_EDIT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,3,21,69,9
+    EDITTEXT        IDC_EDIT_HOFFSET,32,103,48,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Offset :",IDC_STATIC,6,104,24,9
+    GROUPBOX        "Brush Speed",IDC_STATIC,0,93,103,49
+    CONTROL         "Spin1",IDC_SPIN_HOFFSET,"msctls_updown32",UDS_ARROWKEYS,81,102,9,12
+    CONTROL         "Slider1",IDC_SLIDER_BRUSHSIZE,"msctls_trackbar32",TBS_AUTOTICKS | WS_TABSTOP,3,56,93,15
+    LTEXT           "Small                         Large",IDC_STATIC,4,72,96,9
+    EDITTEXT        IDC_EDIT_BRUSHSIZE,32,44,48,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Size :",IDC_STATIC,6,45,24,9
+    GROUPBOX        "Brush Size",IDC_STATIC,0,34,103,49
+    CONTROL         "Spin1",IDC_SPIN_BRUSH,"msctls_updown32",UDS_ARROWKEYS,81,43,9,12
+    GROUPBOX        "Cursor Info",IDC_STATIC,0,181,103,74
+    LTEXT           "Pos:",IDC_STATIC,6,193,17,8
+    LTEXT           "",IDC_STATIC_CURSORPOS,24,193,75,8
+    CONTROL         "Up / Down",IDC_CHECK_UPDOWN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,149,66,10
+    LTEXT           "Small                         Large",IDC_STATIC,4,131,96,9
+    LTEXT           "light:",IDC_STATIC,6,206,17,8
+    LTEXT           "",IDC_STATIC_LIGHTDIR,24,206,75,8
+END
+
+IDD_DLG_CREATETERRAIN DIALOGEX 0, 0, 203, 151
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Create Terrain"
+FONT 10, "System", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "",IDC_STATIC,7,91,189,31
+    LTEXT           "Texture file :",IDC_STATIC,14,77,43,10
+    COMBOBOX        IDC_COMBO_WIDTH,64,11,53,70,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,92,130,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,146,130,50,14
+    LTEXT           "Width :",IDC_STATIC,14,12,25,9
+    LTEXT           "Height :",IDC_STATIC,14,25,26,9
+    CONTROL         "Spin2",IDC_SPIN_WIDTH,"msctls_updown32",UDS_ARROWKEYS,119,11,8,12
+    CONTROL         "Spin2",IDC_SPIN_HEIGHT,"msctls_updown32",UDS_ARROWKEYS,119,24,8,12
+    COMBOBOX        IDC_COMBO_HEIGHT,64,24,53,65,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_TEXTURE,64,76,110,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON_TEXTURE,177,76,16,11
+    LTEXT           "CellSize :",IDC_STATIC,14,102,43,8
+    LTEXT           "static1",IDC_STATIC_CELLSIZE,68,102,100,8
+    GROUPBOX        "",IDC_STATIC,7,7,189,84
+    LTEXT           "VtxPerRow :",IDC_STATIC,14,38,42,9
+    LTEXT           "VtxPerCol :",IDC_STATIC,14,51,41,9
+    CONTROL         "",IDC_SPIN_WIDTH2,"msctls_updown32",UDS_ARROWKEYS,119,37,9,12
+    CONTROL         "",IDC_SPIN_HEIGHT2,"msctls_updown32",UDS_ARROWKEYS,119,50,9,12
+    COMBOBOX        IDC_COMBO_VTXPERROW,64,37,53,70,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_VTXPERCOL,64,50,53,65,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "File Path :",IDC_STATIC,14,64,43,8
+    EDITTEXT        IDC_EDIT_FILEPATH,64,63,110,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON_FILEPATH,177,63,16,11
+END
+
+IDD_MAPTOOL2_DIALOG DIALOGEX 0, 0, 522, 487
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "맵툴임"
+FONT 9, "굴림", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "&Open",IDC_BUTTON_OPEN,7,7,34,13,BS_FLAT
+    PUSHBUTTON      "&Save",IDC_BUTTON_SAVE,43,7,34,13,BS_FLAT
+    PUSHBUTTON      "&Create",IDC_BUTTON_CREATE,80,7,34,13,BS_FLAT
+    PUSHBUTTON      "O&tion",IDC_BUTTON_OPTION,118,7,34,13,BS_FLAT
+    CONTROL         "Fog",IDC_CHECK_FOG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,180,7,29,15
+    CONTROL         "Vertex",IDC_CHECK_VERTEX,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,250,7,32,15
+    CONTROL         "Texture",IDC_CHECK_TEXTURE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,209,7,37,15
+    CONTROL         "ChunkEdge",IDC_CHECK_CHUNKEDGE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,287,9,49,12
+    CONTROL         "DispQuad",IDC_CHECK_DISPQUADTREE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,427,9,44,12
+    CONTROL         "Normal",IDC_CHECK_NORMAL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,338,9,38,12
+    CONTROL         "Shadow",IDC_CHECK_SHADOW,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,377,9,38,12
+END
+
+IDD_DLG_TILE DIALOG  0, 0, 117, 630
+STYLE DS_SETFONT | WS_CHILD
+FONT 9, "굴림"
+BEGIN
+    LTEXT           "tile directory",IDC_STATIC_TILE_DIRPATH,2,28,103,9
+    LISTBOX         IDC_LIST_TILE,2,38,111,70,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Refresh",IDC_BUTTON_REFRESH,3,109,32,12
+    GROUPBOX        "",IDC_STATIC,16,119,80,67
+    CONTROL         "Slider1",IDC_SLIDER_BRUSHSIZE,"msctls_trackbar32",TBS_AUTOTICKS | TBS_BOTH | TBS_ENABLESELRANGE | WS_TABSTOP,41,232,76,13
+    CONTROL         "Slider1",IDC_SLIDER_BRUSHCENTER,"msctls_trackbar32",TBS_AUTOTICKS | TBS_BOTH | TBS_ENABLESELRANGE | WS_TABSTOP,41,246,76,13
+    CONTROL         "Slider1",IDC_SLIDER_BRUSHSPEED,"msctls_trackbar32",TBS_AUTOTICKS | TBS_BOTH | TBS_ENABLESELRANGE | WS_TABSTOP,41,260,76,13
+    LTEXT           "egde:",IDC_STATIC,2,235,18,8
+    LTEXT           "center:",IDC_STATIC,2,248,22,8
+    LTEXT           "speed:",IDC_STATIC,2,262,22,8
+    LTEXT           "size",IDC_STATIC_BRUSHSIZE,27,235,13,8
+    LTEXT           "size",IDC_STATIC_BRUSHCENTER,27,248,13,8
+    LTEXT           "size",IDC_STATIC_BRUSHSPEED,27,261,13,8
+    PUSHBUTTON      "delete",IDC_BUTTON_DELETELAYER,2,438,27,14
+    LTEXT           "max layer count",IDC_STATIC_MAXLAYERCOUNT,3,336,98,8
+    LTEXT           "chunk pos(x,y)",IDC_STATIC_CHUNKPOS,3,346,98,8
+    GROUPBOX        "Brush",IDC_STATIC,0,197,117,112
+    GROUPBOX        "Layer",IDC_STATIC,0,327,117,213
+    GROUPBOX        "Tile",IDC_STATIC,0,19,115,171
+    CONTROL         "Edit Tile Mode",IDC_CHECK_TILEEDIT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,0,6,62,9
+    LTEXT           "edge alpha:",IDC_STATIC,2,279,39,8
+    EDITTEXT        IDC_EDIT_EDGE_ALPHA,59,278,35,12,ES_AUTOHSCROLL
+    SCROLLBAR       IDC_SCROLLBAR_EDGE_ALPHA,97,276,16,13,SBS_VERT
+    LTEXT           "center alpha:",IDC_STATIC,2,293,44,8
+    EDITTEXT        IDC_EDIT_CENTER_ALPHA,59,293,35,12,ES_AUTOHSCROLL
+    SCROLLBAR       IDC_SCROLLBAR_CENTER_ALPHA,97,291,16,13,SBS_VERT
+    PUSHBUTTON      "show",IDC_BUTTON_SHOWLAYER,31,438,27,14
+    PUSHBUTTON      "edit",IDC_BUTTON_EDITLAYER,59,438,27,14
+    PUSHBUTTON      "hide",IDC_BUTTON_HIDELAYER,31,454,27,14
+    PUSHBUTTON      "lock",IDC_BUTTON_LOCKLAYER,59,454,27,14
+    CONTROL         "List1",IDC_LIST_LAYER,"SysListView32",LVS_SMALLICON | LVS_SHOWSELALWAYS | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,0,356,117,71
+    GROUPBOX        "",IDC_STATIC,16,469,80,67
+    CONTROL         "erase brush",IDC_CHECK_ERASEBRUSH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,3,207,55,9
+    CONTROL         "match texture",IDC_CHECK_MATCH_TEXTURE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,3,218,55,9
+END
+
+IDD_FILELIST DIALOGEX 0, 0, 143, 125
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CTEXT           "Static",IDC_LISTNAME,0,5,136,10
+    LISTBOX         IDC_FILELIST,0,17,136,77,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "...",IDC_NEWPATH,99,100,37,14
+    PUSHBUTTON      "Refresh",IDC_REFRESH,0,100,94,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041204B0"
+        BEGIN
+            VALUE "FileDescription", "MapTool2 MFC 응용 프로그램"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "MapTool2"
+            VALUE "LegalCopyright", "Copyright (C) 2009"
+            VALUE "OriginalFilename", "MapTool2.EXE"
+            VALUE "ProductName", "MapTool2 응용 프로그램"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x412, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_DLG_CREATETERRAIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 196
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+        HORZGUIDE, 130
+    END
+
+    IDD_MAPTOOL2_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 515
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 480
+    END
+
+    IDD_FILELIST, DIALOG
+    BEGIN
+        VERTGUIDE, 136
+        HORZGUIDE, 17
+        HORZGUIDE, 94
+        HORZGUIDE, 100
+        HORZGUIDE, 114
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP_FILETREE     BITMAP                  "res\\bitmap1.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// HTML
+//
+
+IDR_HTML_FILELIST       HTML                    "FileList.htm"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "MapTool2 정보(&A)..."
+END
+
+#endif    // 한국어 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE 18, 1
+#pragma code_page(949)
+#endif //_WIN32
+#include "res\MapTool2.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.kor\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

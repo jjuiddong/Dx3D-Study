@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C0115CCD-0AB5-4820-945D-1589E0B0DAB8}</ProjectGuid>
+    <RootNamespace>MapTool2</RootNamespace>
+    <SccProjectName>
+    </SccProjectName>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccProvider>
+    </SccProvider>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Debug/MapTool2.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\Debug/MapTool2.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Debug/</AssemblerListingLocation>
+      <ObjectFileName>.\Debug/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug/</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>d3dx9.lib;d3d9.lib;dxguid.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\Debug/MapTool2.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\Debug/MapTool2.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug/MapTool2.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Release/MapTool2.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>D:\P\SEvos\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\Release/MapTool2.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Release/</AssemblerListingLocation>
+      <ObjectFileName>.\Release/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>d3dx9.lib;dxerr9.lib;d3d9.lib;dxguid.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\Release/MapTool2.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>.\Release/MapTool2.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release/MapTool2.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="aniFileListBox.cpp" />
+    <ClCompile Include="BasePanelFrame.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="CrTerrainDlg.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="FileListBox.cpp" />
+    <ClCompile Include="FileTree.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="Global.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="LayerListCtrl.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="MapTool2.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="MapTool2Dlg.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="MapView.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="modelEditMouseListner.cpp" />
+    <ClCompile Include="modelFileListBox.cpp" />
+    <ClCompile Include="ModelPannel.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TabBase.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="terrainEditMouseListner.cpp" />
+    <ClCompile Include="TerrainPannel.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="tileEditMouseListner.cpp" />
+    <ClCompile Include="TilePanel.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\Common\math\box.cpp" />
+    <ClCompile Include="..\Common\math\Matrix.cpp" />
+    <ClCompile Include="..\Common\math\plane.cpp" />
+    <ClCompile Include="..\Common\math\Quaternion.cpp" />
+    <ClCompile Include="..\Common\math\sphere.cpp" />
+    <ClCompile Include="..\Common\math\triangle.cpp" />
+    <ClCompile Include="..\Common\math\Vector2.cpp" />
+    <ClCompile Include="..\Common\math\Vector3.cpp" />
+    <ClCompile Include="..\Common\scriptlib\script.cpp" />
+    <ClCompile Include="..\Common\scriptlib\script_analyze.cpp" />
+    <ClCompile Include="..\Common\scriptlib\script_codegen.cpp" />
+    <ClCompile Include="..\Common\scriptlib\script_global.cpp" />
+    <ClCompile Include="..\Common\scriptlib\script_machine.cpp" />
+    <ClCompile Include="..\Common\scriptlib\script_parser.cpp" />
+    <ClCompile Include="..\Common\model\3dNode.cpp" />
+    <ClCompile Include="..\Common\model\AniMesh.cpp" />
+    <ClCompile Include="..\Common\model\Bone.cpp" />
+    <ClCompile Include="..\Common\model\collision.cpp" />
+    <ClCompile Include="..\Common\model\dispObject.cpp" />
+    <ClCompile Include="..\Common\model\KeyAniMesh.cpp" />
+    <ClCompile Include="..\Common\model\Mesh.cpp" />
+    <ClCompile Include="..\Common\model\Model.cpp" />
+    <ClCompile Include="..\Common\model\Track.cpp" />
+    <ClCompile Include="..\Common\common\Camera.cpp" />
+    <ClCompile Include="..\Common\common\d3dUtility.cpp" />
+    <ClCompile Include="..\Common\common\dbg.cpp" />
+    <ClCompile Include="..\Common\common\dbgpcinfo.cpp" />
+    <ClCompile Include="..\Common\common\dbgsymengine.cpp" />
+    <ClCompile Include="..\Common\common\FileLoader.cpp" />
+    <ClCompile Include="..\Common\common\frustum.cpp" />
+    <ClCompile Include="..\Common\common\light.cpp" />
+    <ClCompile Include="..\Common\common\LinearMemLoader.cpp" />
+    <ClCompile Include="..\Common\common\mmTimers.cpp" />
+    <ClCompile Include="..\Common\common\MouseInput.cpp" />
+    <ClCompile Include="..\Common\common\shader.cpp" />
+    <ClCompile Include="..\Common\common\skyBox.cpp" />
+    <ClCompile Include="..\Common\common\utility.cpp" />
+    <ClCompile Include="..\Common\terrain\chunk.cpp" />
+    <ClCompile Include="..\Common\terrain\chunkManager.cpp" />
+    <ClCompile Include="..\Common\terrain\quadtree.cpp" />
+    <ClCompile Include="..\Common\terrain\region.cpp" />
+    <ClCompile Include="..\Common\terrain\shadowsystem.cpp" />
+    <ClCompile Include="..\Common\terrain\Terrain.cpp" />
+    <ClCompile Include="..\Common\terrain\terrainCursor.cpp" />
+    <ClCompile Include="..\Common\terrain\TerrainEditor.cpp" />
+    <ClCompile Include="..\Common\terrain\water.cpp" />
+    <ClCompile Include="..\Common\game\ai_object.cpp" />
+    <ClCompile Include="..\Common\game\character.cpp" />
+    <ClCompile Include="..\Common\game\combo.cpp" />
+    <ClCompile Include="..\Common\game\control.cpp" />
+    <ClCompile Include="..\Common\game\LifeBar.cpp" />
+    <ClCompile Include="..\Common\game\scene.cpp" />
+    <ClCompile Include="..\Common\game\sceneGame.cpp" />
+    <ClCompile Include="..\Common\game\uicontrol.cpp" />
+    <ClCompile Include="..\Common\mfc\panelBase.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MapTool2.rc">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="aniFileListBox.h" />
+    <ClInclude Include="BasePanelFrame.h" />
+    <ClInclude Include="CrTerrainDlg.h" />
+    <ClInclude Include="FileListBox.h" />
+    <ClInclude Include="FileTree.h" />
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="LayerListCtrl.h" />
+    <ClInclude Include="MapTool2.h" />
+    <ClInclude Include="MapTool2Dlg.h" />
+    <ClInclude Include="MapView.h" />
+    <ClInclude Include="modelEditMouseListner.h" />
+    <ClInclude Include="modelFileListBox.h" />
+    <ClInclude Include="ModelPannel.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="TabBase.h" />
+    <ClInclude Include="terrainEditMouseListner.h" />
+    <ClInclude Include="TerrainPannel.h" />
+    <ClInclude Include="tileEditMouseListner.h" />
+    <ClInclude Include="TilePanel.h" />
+    <ClInclude Include="..\Common\math\box.h" />
+    <ClInclude Include="..\Common\math\Math.h" />
+    <ClInclude Include="..\Common\math\Matrix.h" />
+    <ClInclude Include="..\Common\math\plane.h" />
+    <ClInclude Include="..\Common\math\Quaternion.h" />
+    <ClInclude Include="..\Common\math\sphere.h" />
+    <ClInclude Include="..\Common\math\triangle.h" />
+    <ClInclude Include="..\Common\math\Vector2.h" />
+    <ClInclude Include="..\Common\math\Vector3.h" />
+    <ClInclude Include="..\Common\scriptlib\script.h" />
+    <ClInclude Include="..\Common\scriptlib\script_analyze.h" />
+    <ClInclude Include="..\Common\scriptlib\script_codegen.h" />
+    <ClInclude Include="..\Common\scriptlib\script_global.h" />
+    <ClInclude Include="..\Common\scriptlib\script_machine.h" />
+    <ClInclude Include="..\Common\scriptlib\script_parser.h" />
+    <ClInclude Include="..\Common\model\3dNode.h" />
+    <ClInclude Include="..\Common\model\AniMesh.h" />
+    <ClInclude Include="..\Common\model\Bone.h" />
+    <ClInclude Include="..\Common\model\collision.h" />
+    <ClInclude Include="..\Common\model\dispObject.h" />
+    <ClInclude Include="..\Common\model\KeyAniMesh.h" />
+    <ClInclude Include="..\Common\model\Mesh.h" />
+    <ClInclude Include="..\Common\model\Model.h" />
+    <ClInclude Include="..\Common\model\Track.h" />
+    <ClInclude Include="..\Common\common\Camera.h" />
+    <ClInclude Include="..\Common\common\d3dUtility.h" />
+    <ClInclude Include="..\Common\common\dbg.h" />
+    <ClInclude Include="..\Common\common\dbgpcinfo.h" />
+    <ClInclude Include="..\Common\common\dbgstream.h" />
+    <ClInclude Include="..\Common\common\dbgsymengine.h" />
+    <ClInclude Include="..\Common\common\debug_stream.h" />
+    <ClInclude Include="..\Common\common\FileLoader.h" />
+    <ClInclude Include="..\Common\common\frustum.h" />
+    <ClInclude Include="..\Common\common\light.h" />
+    <ClInclude Include="..\Common\common\LinearMemLoader.h" />
+    <ClInclude Include="..\Common\common\mmTimers.h" />
+    <ClInclude Include="..\Common\common\mouseEventListner.h" />
+    <ClInclude Include="..\Common\common\MouseInput.h" />
+    <ClInclude Include="..\Common\common\parser.h" />
+    <ClInclude Include="..\Common\common\parserdef.h" />
+    <ClInclude Include="..\Common\common\shader.h" />
+    <ClInclude Include="..\Common\common\skyBox.h" />
+    <ClInclude Include="..\Common\common\structdef.h" />
+    <ClInclude Include="..\Common\common\utility.h" />
+    <ClInclude Include="..\Common\terrain\chunk.h" />
+    <ClInclude Include="..\Common\terrain\chunkManager.h" />
+    <ClInclude Include="..\Common\terrain\quadtree.h" />
+    <ClInclude Include="..\Common\terrain\region.h" />
+    <ClInclude Include="..\Common\terrain\shadowsystem.h" />
+    <ClInclude Include="..\Common\terrain\Terrain.h" />
+    <ClInclude Include="..\Common\terrain\terrainCursor.h" />
+    <ClInclude Include="..\Common\terrain\TerrainEditor.h" />
+    <ClInclude Include="..\Common\terrain\water.h" />
+    <ClInclude Include="..\Common\game\ai_object.h" />
+    <ClInclude Include="..\Common\game\character.h" />
+    <ClInclude Include="..\Common\game\combo.h" />
+    <ClInclude Include="..\Common\game\control.h" />
+    <ClInclude Include="..\Common\game\LifeBar.h" />
+    <ClInclude Include="..\Common\game\scene.h" />
+    <ClInclude Include="..\Common\game\sceneGame.h" />
+    <ClInclude Include="..\Common\game\uicontrol.h" />
+    <ClInclude Include="..\Common\mfc\panelBase.h" />
+    <ClInclude Include="..\Common\mfc\panelListner.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\bitmap1.bmp" />
+    <None Include="res\bmp00001.bmp" />
+    <None Include="res\MapTool2.ico" />
+    <None Include="res\MapTool2.rc2" />
+    <None Include="Doc\doc.txt" />
+    <None Include="image\0001.bmp" />
+    <None Include="image\001 copy.bmp" />
+    <None Include="image\001 copy.jpg" />
+    <None Include="image\002 copy.bmp" />
+    <None Include="image\32 --.bmp" />
+    <None Include="image\32 title.bmp" />
+    <None Include="image\55.bmp" />
+    <None Include="image\__석양.jpg" />
+    <None Include="image\_button2.bmp" />
+    <None Include="image\background.bmp" />
+    <None Include="image\bmp1.bmp" />
+    <None Include="image\button1.bmp" />
+    <None Include="image\button2.bmp" />
+    <None Include="image\Crate.bmp" />
+    <None Include="image\evolar.bmp" />
+    <None Include="image\lifebar.bmp" />
+    <None Include="image\lifeg.bmp" />
+    <None Include="image\loadscene.bmp" />
+    <None Include="image\사본 - button2.bmp" />
+    <None Include="image\사본 - lifebar.bmp" />
+    <None Include="map\tile\Detail.tga" />
+    <None Include="map\tile\green.bmp" />
+    <None Include="map\tile\radiation_box.tga" />
+    <None Include="map\tile\Terrain0.tga" />
+    <None Include="map\tile\tile2.tga" />
+    <None Include="map\tile\자갈.bmp" />
+    <None Include="model\_bmm.txt" />
+    <None Include="model\ani.a" />
+    <None Include="model\ani.txt" />
+    <None Include="model\ani_box.txt" />
+    <None Include="model\ani_box2.txt" />
+    <None Include="model\ani_robot.txt" />
+    <None Include="model\ani_robot_kick.txt" />
+    <None Include="model\ani_robot_run.txt" />
+    <None Include="model\bmm.bmm" />
+    <None Include="model\bmm.txt" />
+    <None Include="model\bmm2.txt" />
+    <None Include="model\box.txt" />
+    <None Include="model\character_1.a" />
+    <None Include="model\character_1.txt" />
+    <None Include="model\character_1_.txt" />
+    <None Include="model\character_ani.txt" />
+    <None Include="model\character_bmm.bmm" />
+    <None Include="model\character_bmm.txt" />
+    <None Include="model\chop.txt" />
+    <None Include="model\chop2.txt" />
+    <None Include="model\damage1.txt" />
+    <None Include="model\damage2.txt" />
+    <None Include="model\dash.txt" />
+    <None Include="model\dead.txt" />
+    <None Include="model\ex2.bmm" />
+    <None Include="model\ex2.txt" />
+    <None Include="model\jmpdamage.txt" />
+    <None Include="model\kick.txt" />
+    <None Include="model\ko2.txt" />
+    <None Include="model\launch.txt" />
+    <None Include="model\launch3.txt" />
+    <None Include="model\old_bmm.txt" />
+    <None Include="model\pierce.txt" />
+    <None Include="model\robot.bmm" />
+    <None Include="model\robot.txt" />
+    <None Include="model\upper.txt" />
+    <None Include="model\wait.txt" />
+    <None Include="model\wakeup.txt" />
+    <None Include="model\walk.txt" />
+    <None Include="model\weapon.bmm" />
+    <None Include="model\weapon.txt" />
+    <None Include="SaveMap\ax.bmm" />
+    <None Include="SaveMap\ax.map" />
+    <None Include="script\(old) combo.txt" />
+    <None Include="script\__def.txt" />
+    <None Include="script\ai1.bgm" />
+    <None Include="script\ai1.gm" />
+    <None Include="script\AI1.txt" />
+    <None Include="script\combo.b" />
+    <None Include="script\combo.txt" />
+    <None Include="script\ComboParser.exe" />
+    <None Include="script\def.txt" />
+    <None Include="script\ScenarioScript.bgm" />
+    <None Include="script\ScenarioScript.gm" />
+    <None Include="script\ScenarioScript.txt" />
+    <None Include="script\ScriptDefine.bgm" />
+    <None Include="script\ScriptDefine.gm" />
+    <None Include="script\ScriptDefine.txt" />
+    <None Include="script\사본 - combo.txt" />
+    <None Include="Texture\Barrens_DesertDark.tga" />
+    <None Include="Texture\BumpEarth.jpg" />
+    <None Include="Texture\green.bmp" />
+    <None Include="Texture\tile2.tga" />
+    <None Include="Texture\자갈.bmp" />
+    <None Include="ui\scene.txt" />
+    <None Include="ui\scene.ui" />
+    <None Include="ui\scenelist.txt" />
+    <None Include="FileList.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="MapTool2.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -7,7 +7,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////
 // DirectMusic
-
+/*
 // global variable
 IDirectMusicPerformance		*g_Perf = NULL;				// the directmusic performance manager
 IDirectMusicLoader			*g_Loader = NULL;			// the directmusic loader
@@ -424,3 +424,5 @@ BOOL DSound_Load_WAV( char *filename, LPDSOUND_WAV pDSBuf )
 	return TRUE;
 
 } // end DSound_Load_WAV
+
+/**/

@@ -1,0 +1,52 @@
+
+// ScenarioScript 예제  2008-01-13
+
+import class @@Character
+{
+	float x : 100
+	float y : 101
+	fn void SetPos( a, b ) 	: 111
+ 	fn void DefaultStatus() : 112
+	fn int IsDead() 	: 113
+}
+
+import class @@AI
+{
+	int state 		: 200
+	int elapse 		: 201
+	float distance 		: 202
+	int hp 			: 203
+	float attack_distance 	: 204
+	int level 		: 205
+	fn void ChangeAIState( st )	: 211
+	fn int IsDead() 		: 212
+}
+
+// 시스템 함수들
+import fn void DbgPrint( num ) 		: 1000
+import fn void DbgPrintStr( str ) 	: 1001
+import fn void ExecuteScript( str ) 	: 1002
+import fn string GetArgument() 		: 1003
+
+// 전역 함수들
+import fn @@Character CreateHero( name, model, ani, weapon, combo, ai ) 	: 1010
+import fn @@Character CreateEnemy( name, model, ani, weapon, combo, ai ) 	: 1011
+import fn @@AI GetAI( str ) 							: 1021
+import fn void SetTerrain( str ) 						: 1031
+
+
+
+// 인공지능 스크립트를 위한 정의
+define Wait		1
+define Watch		2
+define Attack		3
+define ComboAttack	4
+define AttackWait	5
+define OutMove 		6
+define InMove 		7
+define Chase 		8
+define Runaway 		9
+define Dead 		10
+
+
+ScriptEnd

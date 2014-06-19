@@ -1,0 +1,57 @@
+GPJ
+
+vector3
+{
+	float
+	float
+	float
+}
+
+MODEL
+{
+	vector3
+	int
+	char[64]
+}
+
+LAYER
+{
+	int
+	char[260]
+	char[260]
+}
+
+CHUNK
+{
+	int
+	LAYER*
+}
+
+CHUNKGROUP
+{
+	int
+	int
+	int
+	int
+	int
+	int
+	CHUNK*
+}
+
+TERRAIN
+{
+	int
+	int
+	int
+	int
+	int
+	int
+	int
+	size
+	float*
+	size
+	MODEL*
+	size
+	MODEL*
+	CHUNKGROUP
+}

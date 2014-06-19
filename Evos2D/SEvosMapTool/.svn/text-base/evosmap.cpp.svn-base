@@ -1,0 +1,54 @@
+
+#include "stdafx.h"
+#include "evosmap.h"
+
+#include "../Common/graph/HandyGraphFunctions.h"
+
+CEvosMap::CEvosMap() : 
+m_Graph(false),
+m_IsRenderID(true)
+{
+
+}
+
+
+CEvosMap::~CEvosMap()
+{
+	m_Graph.Clear();
+
+}
+
+
+// NaviGraph 를 그리드 형태로 미리 생성해 놓는다.
+//
+void CEvosMap::Create(int width, int height, int cellNumX, int cellNumY)
+{
+	m_MapWidth = width;
+	m_MapHeight = height;
+	m_NumCellX = cellNumX;
+	m_NumCellY = cellNumY;
+}
+
+
+//
+//
+void CEvosMap::Update(float timeDelta)
+{
+
+}
+
+
+//
+//
+void CEvosMap::Render()
+{
+	GraphHelper_DrawUsingGDI(m_Graph, 0, m_IsRenderID);
+
+}
+
+
+void CEvosMap::Clear()
+{
+	m_Graph.Clear();
+
+}

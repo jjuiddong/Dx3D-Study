@@ -1,0 +1,44 @@
+
+#include "stdafx.h"
+#include "gnode.h"
+#include "gedge.h"
+
+
+//
+//
+BOOL CGnode::AddEdge( CGedge *pedge )
+{
+	if (IsExistEdge(pedge)) return FALSE;
+	m_EdgeList.push_back(pedge);
+	return TRUE;
+}
+
+
+//
+//
+BOOL CGnode::RemoveEdge( CGedge *pedge )
+{
+	EdgeItor newend = remove_if(m_EdgeList.begin(), m_EdgeList.end(), CSearchCGedge(pedge));
+	m_EdgeList.erase(newend, m_EdgeList.end());
+	return TRUE;
+}
+
+
+//
+//
+BOOL CGnode::IsExistEdge( CGedge *pedge )
+{
+	EdgeItor newend = remove_if(m_EdgeList.begin(), m_EdgeList.end(), CSearchCGedge(pedge));
+	if (m_EdgeList.end() == newend) return FALSE;
+	return TRUE;
+}
+
+
+//
+//
+void CGnode::Clear()
+{
+	m_EdgeList.clear();
+
+}
+

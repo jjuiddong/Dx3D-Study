@@ -1,0 +1,36 @@
+
+#ifndef  __EVOSMAP_H__
+#define  __EVOSMAP_H__
+
+#include "global.h"
+
+class CEvosMap
+{
+public:
+	CEvosMap();
+	virtual ~CEvosMap();
+
+protected:
+	typedef SparseGraph<NavGraphNode<>, NavGraphEdge> GraphType;
+
+	std::list<Wall2D*> m_WallList;
+	GraphType m_Graph;
+
+	int m_MapWidth;
+	int m_MapHeight;
+	int m_NumCellX;
+	int m_NumCellY;
+	bool m_IsRenderID;
+
+public:
+	virtual void Create(int width, int height, int cellNumX, int cellNumY);
+	virtual void Update(float timeDelta);
+	virtual void Render();
+	void SetIsRenderID(bool isRenderId) { m_IsRenderID = isRenderId; }
+	void Clear();
+
+protected:
+
+};
+
+#endif

@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="game">
+      <UniqueIdentifier>{82cb2753-994a-4fd4-a9df-008893585a20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{ae6ab639-4530-498f-9fe1-7c680d73c1b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="model">
+      <UniqueIdentifier>{e30150e8-5afe-4e81-8589-7dbf8fdc22aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math">
+      <UniqueIdentifier>{351b50d6-3fde-450a-8025-4e747f2e8d96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scriptlib">
+      <UniqueIdentifier>{ada99c40-d165-4a02-8b54-f2c4403f296d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mfc">
+      <UniqueIdentifier>{4bc01b47-8f58-4580-a79f-0877c29a3d0b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="aniFileListBox.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BasePanelFrame.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="EditPanel.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="FileListBox.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Global.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="modelFileListBox.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelView.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelViewer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelViewerDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TabBase.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewPanel.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\game\ai_object.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\game\character.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\game\combo.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\game\control.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\game\LifeBar.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\game\scene.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\game\sceneGame.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\game\uicontrol.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\common\Camera.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\common\d3dUtility.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\common\dbg.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\common\dbgpcinfo.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\common\dbgsymengine.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\common\FileLoader.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\common\frustum.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\common\light.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\common\LinearMemLoader.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\common\mmTimers.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\common\MouseInput.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\common\utility.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\model\3dNode.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\model\AniMesh.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\model\Bone.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\model\collision.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\model\KeyAniMesh.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\model\Mesh.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\model\Model.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\model\Track.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\math\box.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\math\Matrix.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\math\plane.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\math\Quaternion.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\math\sphere.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\math\triangle.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\math\Vector2.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\math\Vector3.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\scriptlib\script.cpp">
+      <Filter>scriptlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\scriptlib\script_analyze.cpp">
+      <Filter>scriptlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\scriptlib\script_codegen.cpp">
+      <Filter>scriptlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\scriptlib\script_global.cpp">
+      <Filter>scriptlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\scriptlib\script_machine.cpp">
+      <Filter>scriptlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\scriptlib\script_parser.cpp">
+      <Filter>scriptlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\mfc\panelBase.cpp">
+      <Filter>mfc</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="aniFileListBox.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FileListBox.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="modelFileListBox.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BasePanelFrame.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="EditPanel.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelView.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelViewer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelViewerDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TabBase.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewPanel.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\game\ai_object.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\game\character.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\game\combo.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\game\control.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\game\LifeBar.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\game\scene.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\game\sceneGame.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\game\uicontrol.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\common\Camera.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\common\d3dUtility.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\common\dbg.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\common\dbgpcinfo.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\common\dbgstream.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\common\dbgsymengine.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\common\debug_stream.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\common\FileLoader.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\common\frustum.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\common\light.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\common\LinearMemLoader.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\common\mmTimers.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\common\MouseInput.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\common\parser.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\common\parserdef.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\common\structdef.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\common\utility.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\model\3dNode.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\model\AniMesh.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\model\Bone.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\model\collision.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\model\KeyAniMesh.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\model\Mesh.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\model\Model.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\model\Track.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\math\box.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\math\Math.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\math\Matrix.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\math\plane.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\math\Quaternion.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\math\sphere.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\math\triangle.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\math\Vector2.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\math\Vector3.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\scriptlib\script.h">
+      <Filter>scriptlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\scriptlib\script_analyze.h">
+      <Filter>scriptlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\scriptlib\script_codegen.h">
+      <Filter>scriptlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\scriptlib\script_global.h">
+      <Filter>scriptlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\scriptlib\script_machine.h">
+      <Filter>scriptlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\scriptlib\script_parser.h">
+      <Filter>scriptlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\mfc\panelBase.h">
+      <Filter>mfc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\mfc\panelListner.h">
+      <Filter>mfc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\ModelViewer.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ModelViewer.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ModelViewer.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

@@ -251,7 +251,8 @@ BOOL CBone_::Load( int ObjId, SBoneGroupLoader *pLoader, BOOL bCollision, SMeshG
 	// Palette 생성
 	SAFE_ADELETE( m_pPalette );
 	m_pPalette = new Matrix44[ pLoader->size];
-	for( int i=0; i < pLoader->size; ++i )
+	int i=0;
+	for( i=0; i < pLoader->size; ++i )
 		m_pPalette[ i].SetIdentity();
 
 	// 충돌박스를 생성한다.
@@ -400,7 +401,8 @@ BOOL CBone_::CreateCollisionBox( SBoneGroupLoader *pLoader, SMeshGroupLoader *pM
 	// physiq정보를 얻어온다.
 	SPhysiqueLoader *physiq = NULL;
 	SMeshLoader *mesh = NULL;
-	for( int i=0; i < pMeshLoader->size; ++i )
+	int i=0;
+	for( i=0; i < pMeshLoader->size; ++i )
 	{
 		if( 0 < pMeshLoader->pMesh[ i].physiq.size )
 		{
@@ -415,7 +417,8 @@ BOOL CBone_::CreateCollisionBox( SBoneGroupLoader *pLoader, SMeshGroupLoader *pM
 	for( i=0; i < pLoader->size; ++i )
 	{
 		SBoneLoader *p = &pLoader->pBone[ i];
-		for( int k=0; k < tabsize; ++k )
+		int k=0;
+		for( k=0; k < tabsize; ++k )
 		{
 			if( !strcmp(p->szName, nodetable[ k]) )
 				break;

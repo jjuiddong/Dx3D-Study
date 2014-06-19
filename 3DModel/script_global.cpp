@@ -489,7 +489,8 @@ BOOL CSymTable::IsImportClass( char *pSymbolName )
 	if( !p ) return FALSE;
 
 	// 디폴트타입이 아니라면 클래스 타입이다.
-	for( int i=0; i < g_DefautTypeSize; ++i )
+	int i=0;
+	for( i=0; i < g_DefautTypeSize; ++i )
 	{
 		if( !strcmp(g_DefautType[ i], p->type) )
 			break;

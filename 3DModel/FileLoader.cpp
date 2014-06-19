@@ -370,7 +370,8 @@ void CFileLoader::ModifyTextureFilename( SMaterialGroupLoader *pLoader )
 			// filename ¸¸ »Ì¾Æ³½´Ù.
 			char szTemp[ 128];
 			int len = strlen( pLoader->pMtrl[ i].szFileName );
-			for( int k=len-1; k >= 0; --k )
+			int k = 0;
+			for( k=len-1; k >= 0; --k )
 			{
 				if( '/' == pLoader->pMtrl[ i].szFileName[ k] || 
 					'\\' == pLoader->pMtrl[ i].szFileName[ k] )

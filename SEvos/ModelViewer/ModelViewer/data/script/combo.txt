@@ -1,0 +1,88 @@
+
+Command ( wait|walk|dash|attack|damage|state1|state2|ko, wait, 
+							{* , wait,  X, R, 0, 0, 0, 0, 0, 0, 1, "wait" } )
+
+
+Command ( wait|walk, walk, {U|D|F|B|UF|UB|DF|DB, 		    state4,  X, C, 3, 0,  0,  0,  0,  0,   1,   "walk" } )
+
+Command ( state3, walk,    {* , 		 		      wait,  X, R, 0, 0,  0,  0,  0,  0,   1,   "wait" } )
+Command ( state3, walk,    {~ , 		 		      dash,  X, C, 3, 0,  8,  0,  0,  0,   1,   "dash" } )
+Command ( state3, walk,    {! , 		 		      walk,  X, C, 3, 8, 10,  0,  0,  0,   1,   "walk" } )
+Command ( state3, walk,    {G1, 				    damage,  X, I,10, 0,  0,  0,  0,  0,   1,"damage1" } )
+Command ( state3, walk,    {S|S&U|S&D|S&F|S&B|S&UF|S&UB|S&DF|S&DB , attack,  L, I, 0, 0,  8, 10,  4,  8,   1,  "upper" } )
+Command ( state3, walk,    {S|S&U|S&D|S&F|S&B|S&UF|S&UB|S&DF|S&DB , attack,  N, I, 0, 8,  0,  6,  2,  1,   1,  "chop2" } )
+Command ( state3, walk,    {A|A&U|A&D|A&F|A&B|A&UF|A&UB|A&DF|A&DB , state2,  N, I, 0, 0,  0,  8,  6,  2,   1,   "chop" } )
+Command ( state3, walk,    {U|D|F|B|UF|UB|DF|DB, 		    state4,  X, C, 3, 8,  0,  0,  0,  0,   1,   "walk" } )
+
+Command ( state4, walk,    {* ,		    	 		    state3,  X, I,18, 3,  0,  0,  0,  0,   1,   "wait" } )
+Command ( state4, walk,    {U|D|F|B|UF|UB|DF|DB, 		    state1,  X, C, 3, 0,  3,  0,  0,  0,   1,   "walk" } )
+Command ( state4, walk,    {S|S&U|S&D|S&F|S&B|S&UF|S&UB|S&DF|S&DB , attack,  N, I, 0, 0,  0,  8,  6,  2,   1,   "chop2" } )
+Command ( state4, walk,    {G1, 				    damage,  X, I,10, 0,  0,  0,  0,  0,   1, "damage1" } )
+
+Command ( state1,  state1, {U|D|F|B|UF|UB|DF|DB, state1,  X, C, 3, 0, 0, 0, 0, 0, 1, "walk" } )
+Command ( state1,  attack, {S|S&U|S&D|S&F|S&B|S&UF|S&UB|S&DF|S&DB ,  attack,  N, I, 0, 0, 0, 8, 6, 2, 1, "chop2" } )
+
+Command ( dash, dash, 	   {U|D|F|B|UF|UB|DF|DB, dash, X, C, 4, 0, 0, 0, 0, 0, 1, "dash" } )
+
+Command ( dash, attack,	   {S|S&U|S&D|S&F|S&B|S&UF|S&UB|S&DF|S&DB , attack,  L, I, 18, 0,  8, 10,  4,  8,   1,  "upper" } )
+Command ( dash, attack,	   {A|A&U|A&D|A&F|A&B|A&UF|A&UB|A&DF|A&DB , attack,  P, Q, 0, 0,  8,  4,  6,  8,   1,  "pierce" } )
+
+
+Command ( wait|walk|state1|state4,  state2, 
+			{A|A&U|A&D|A&F|A&B|A&UF|A&UB|A&DF|A&DB ,   state2, N, I, 0, 0, 0, 8, 6, 2, 1, "chop" } )
+
+
+Command ( state2, wait,    {A ,         			   attack,  N, I,  0, 10,  0, 8, 6, 2, 1, "chop2" }
+			   {A ,					   attack,  N, I,  0, 13,  0, 8, 6, 2, 1, "chop"  }
+			   {A ,					   attack,  P, I,  0, 10,  0, 8, 6, 2, 1, "chop2" } )
+
+Command ( state2, wait,    {A ,         			   attack,  N, I,  0, 10,  0, 8, 6, 2, 1, "chop2" }
+			   {A ,					   attack,  N, I,  0, 13,  0, 8, 6, 2, 1, "chop"  }
+			   {U&A ,				   attack,  L, I,  0, 10,  0,10, 4, 2, 1, "upper" } )
+
+Command ( state2, wait,    {A ,         			   attack,  X, I,  0, 10,  0, 8, 6, 0, 1, "chop2" }
+			   {A ,					   attack,  X, I,  0, 13,  0, 8, 6, 0, 1, "chop"  }
+			   {*, 					     wait,  X, R,  0, 10,  0, 0, 0, 0, 1, "wait"  } )
+
+Command ( state2, wait,    {A ,         			   attack,  X, I,  0, 10,  0, 8, 6, 0, 1, "chop2" }
+			   {A ,					   attack,  X, I,  0, 13,  0, 8, 6, 0, 1, "chop"  }
+			   {A|S ,				   attack,  X, I,  0,  4,  6, 8, 6, 0, 1, " "     } )
+
+Command ( state2, wait,    {A ,         			   attack,  X, I,  0, 10,  0, 8, 6, 0, 1, "chop2" }
+			   {*, 					     wait,  X, R,  0, 13,  0, 0, 0, 0, 1, "wait"  } )
+
+Command ( state2, wait,    {A ,         			   attack,  X, I,  0, 10,  0, 8, 6, 0, 1, "chop2" }
+			   {A|S ,				   attack,  X, I,  0,  4,  9, 8, 6, 0, 1, " "     } )
+
+
+Command ( state2, wait,    {*, 					     wait,  X, R,  0, 10,  0, 0, 0, 0, 1, "wait"  } )
+
+Command ( state2, wait,    {G1|G2|G3,				   damage,  X, I,  0,  0,  0, 0, 0, 0, 1, "damage1"  } )
+
+Command ( state2, wait,    {A , 				   attack,  N, I,  0,  5, 10, 8, 6, 2, 1, " "     } )
+
+
+Command ( wait|walk|dash, wait, {S, attack,  N, I, 0, 0,  0, 8, 6, 2, 1, "chop2" } 
+				{S, attack,  N, I, 0, 4, 10, 8, 6, 2, 1, " " 	 } )
+
+Command ( wait|walk|dash, wait, {S, attack,  N, I, 0,  0,  0, 8, 6, 2, 1, "chop2" } 
+			   	{*,   wait,  X, R, 0, 14,  0, 0, 0, 0, 1, "wait"  } )
+
+Command ( wait|walk|dash, wait, {S, attack,  N, I, 0,  0,  0, 8, 6, 2, 1, "chop2" } 
+				{G1,damage,  X, I, 0,  0,  0, 0, 0, 0, 1, "damage1"} )
+
+Command ( wait|walk|dash|attack|damage|state1, wait, {G1, damage,  X, I, 10, 0, 0, 0, 0, 0, 1, "damage1" } )
+Command ( wait|walk|dash|attack|damage|state1, wait, {G2, damage,  X, I,  0, 0, 0, 0, 0, 0, 1, "damage2" } )
+Command ( wait|walk|dash|attack|damage|state1|ko, wait, 
+						{G3, state5,  X, R,  0, 0, 0, 0, 0, 0, 1, "launch" } )
+
+Command ( state5|state6, 		       wait, {G1, state6,  X, I,  0, 0, 0, 0, 0, 0, 1, "jmpdamage" } )
+Command ( state5|state6, 		       wait, {G2, state6,  X, I,  0, 0, 0, 0, 0, 0, 1, "jmpdamage" } )
+Command ( state6, 			       wait, {* , state6,  X, R,  0, 0, 0, 0, 0, 0, 1, "launch" } )
+Command ( state5|state6, 		       wait, {K2, ko,      X, I,  0, 0, 0, 0, 0, 0, 1, "ko2" } 
+						     {*,  ko,      X, I,  0, 0, 0, 0, 0, 0, 1, "wakeup" } )
+
+Command ( damage, 			       wait, {U|D|F|B|UF|UB|DF|DB, damage,  X, I, 10, 0, 0, 0, 0, 0, 1, " " } )
+Command ( wait|walk|dash|attack|damage|ko|state1|state5|state6, dead, 
+						{K1, dead,    X, I,  0, 0, 0, 0, 0, 0, 1, "dead" } )
+

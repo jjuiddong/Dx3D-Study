@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3BF0C666-83FC-45C7-B7B9-CE958DA7D3E3}</ProjectGuid>
+    <RootNamespace>ModelViewer</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>d3dx9.lib;d3d9.lib;dxguid.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="aniFileListBox.cpp" />
+    <ClCompile Include="BasePanelFrame.cpp" />
+    <ClCompile Include="EditPanel.cpp" />
+    <ClCompile Include="FileListBox.cpp" />
+    <ClCompile Include="Global.cpp" />
+    <ClCompile Include="modelFileListBox.cpp" />
+    <ClCompile Include="ModelView.cpp" />
+    <ClCompile Include="ModelViewer.cpp" />
+    <ClCompile Include="ModelViewerDlg.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TabBase.cpp" />
+    <ClCompile Include="ViewPanel.cpp" />
+    <ClCompile Include="..\..\Common\game\ai_object.cpp" />
+    <ClCompile Include="..\..\Common\game\character.cpp" />
+    <ClCompile Include="..\..\Common\game\combo.cpp" />
+    <ClCompile Include="..\..\Common\game\control.cpp" />
+    <ClCompile Include="..\..\Common\game\LifeBar.cpp" />
+    <ClCompile Include="..\..\Common\game\scene.cpp" />
+    <ClCompile Include="..\..\Common\game\sceneGame.cpp" />
+    <ClCompile Include="..\..\Common\game\uicontrol.cpp" />
+    <ClCompile Include="..\..\Common\common\Camera.cpp" />
+    <ClCompile Include="..\..\Common\common\d3dUtility.cpp" />
+    <ClCompile Include="..\..\Common\common\dbg.cpp" />
+    <ClCompile Include="..\..\Common\common\dbgpcinfo.cpp" />
+    <ClCompile Include="..\..\Common\common\dbgsymengine.cpp" />
+    <ClCompile Include="..\..\Common\common\FileLoader.cpp" />
+    <ClCompile Include="..\..\Common\common\frustum.cpp" />
+    <ClCompile Include="..\..\Common\common\light.cpp" />
+    <ClCompile Include="..\..\Common\common\LinearMemLoader.cpp" />
+    <ClCompile Include="..\..\Common\common\mmTimers.cpp" />
+    <ClCompile Include="..\..\Common\common\MouseInput.cpp" />
+    <ClCompile Include="..\..\Common\common\utility.cpp" />
+    <ClCompile Include="..\..\Common\model\3dNode.cpp" />
+    <ClCompile Include="..\..\Common\model\AniMesh.cpp" />
+    <ClCompile Include="..\..\Common\model\Bone.cpp" />
+    <ClCompile Include="..\..\Common\model\collision.cpp" />
+    <ClCompile Include="..\..\Common\model\KeyAniMesh.cpp" />
+    <ClCompile Include="..\..\Common\model\Mesh.cpp" />
+    <ClCompile Include="..\..\Common\model\Model.cpp" />
+    <ClCompile Include="..\..\Common\model\Track.cpp" />
+    <ClCompile Include="..\..\Common\math\box.cpp" />
+    <ClCompile Include="..\..\Common\math\Matrix.cpp" />
+    <ClCompile Include="..\..\Common\math\plane.cpp" />
+    <ClCompile Include="..\..\Common\math\Quaternion.cpp" />
+    <ClCompile Include="..\..\Common\math\sphere.cpp" />
+    <ClCompile Include="..\..\Common\math\triangle.cpp" />
+    <ClCompile Include="..\..\Common\math\Vector2.cpp" />
+    <ClCompile Include="..\..\Common\math\Vector3.cpp" />
+    <ClCompile Include="..\..\Common\scriptlib\script.cpp" />
+    <ClCompile Include="..\..\Common\scriptlib\script_analyze.cpp" />
+    <ClCompile Include="..\..\Common\scriptlib\script_codegen.cpp" />
+    <ClCompile Include="..\..\Common\scriptlib\script_global.cpp" />
+    <ClCompile Include="..\..\Common\scriptlib\script_machine.cpp" />
+    <ClCompile Include="..\..\Common\scriptlib\script_parser.cpp" />
+    <ClCompile Include="..\..\Common\mfc\panelBase.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="aniFileListBox.h" />
+    <ClInclude Include="FileListBox.h" />
+    <ClInclude Include="modelFileListBox.h" />
+    <ClInclude Include="BasePanelFrame.h" />
+    <ClInclude Include="EditPanel.h" />
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="ModelView.h" />
+    <ClInclude Include="ModelViewer.h" />
+    <ClInclude Include="ModelViewerDlg.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TabBase.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="ViewPanel.h" />
+    <ClInclude Include="..\..\Common\game\ai_object.h" />
+    <ClInclude Include="..\..\Common\game\character.h" />
+    <ClInclude Include="..\..\Common\game\combo.h" />
+    <ClInclude Include="..\..\Common\game\control.h" />
+    <ClInclude Include="..\..\Common\game\LifeBar.h" />
+    <ClInclude Include="..\..\Common\game\scene.h" />
+    <ClInclude Include="..\..\Common\game\sceneGame.h" />
+    <ClInclude Include="..\..\Common\game\uicontrol.h" />
+    <ClInclude Include="..\..\Common\common\Camera.h" />
+    <ClInclude Include="..\..\Common\common\d3dUtility.h" />
+    <ClInclude Include="..\..\Common\common\dbg.h" />
+    <ClInclude Include="..\..\Common\common\dbgpcinfo.h" />
+    <ClInclude Include="..\..\Common\common\dbgstream.h" />
+    <ClInclude Include="..\..\Common\common\dbgsymengine.h" />
+    <ClInclude Include="..\..\Common\common\debug_stream.h" />
+    <ClInclude Include="..\..\Common\common\FileLoader.h" />
+    <ClInclude Include="..\..\Common\common\frustum.h" />
+    <ClInclude Include="..\..\Common\common\light.h" />
+    <ClInclude Include="..\..\Common\common\LinearMemLoader.h" />
+    <ClInclude Include="..\..\Common\common\mmTimers.h" />
+    <ClInclude Include="..\..\Common\common\MouseInput.h" />
+    <ClInclude Include="..\..\Common\common\parser.h" />
+    <ClInclude Include="..\..\Common\common\parserdef.h" />
+    <ClInclude Include="..\..\Common\common\structdef.h" />
+    <ClInclude Include="..\..\Common\common\utility.h" />
+    <ClInclude Include="..\..\Common\model\3dNode.h" />
+    <ClInclude Include="..\..\Common\model\AniMesh.h" />
+    <ClInclude Include="..\..\Common\model\Bone.h" />
+    <ClInclude Include="..\..\Common\model\collision.h" />
+    <ClInclude Include="..\..\Common\model\KeyAniMesh.h" />
+    <ClInclude Include="..\..\Common\model\Mesh.h" />
+    <ClInclude Include="..\..\Common\model\Model.h" />
+    <ClInclude Include="..\..\Common\model\Track.h" />
+    <ClInclude Include="..\..\Common\math\box.h" />
+    <ClInclude Include="..\..\Common\math\Math.h" />
+    <ClInclude Include="..\..\Common\math\Matrix.h" />
+    <ClInclude Include="..\..\Common\math\plane.h" />
+    <ClInclude Include="..\..\Common\math\Quaternion.h" />
+    <ClInclude Include="..\..\Common\math\sphere.h" />
+    <ClInclude Include="..\..\Common\math\triangle.h" />
+    <ClInclude Include="..\..\Common\math\Vector2.h" />
+    <ClInclude Include="..\..\Common\math\Vector3.h" />
+    <ClInclude Include="..\..\Common\scriptlib\script.h" />
+    <ClInclude Include="..\..\Common\scriptlib\script_analyze.h" />
+    <ClInclude Include="..\..\Common\scriptlib\script_codegen.h" />
+    <ClInclude Include="..\..\Common\scriptlib\script_global.h" />
+    <ClInclude Include="..\..\Common\scriptlib\script_machine.h" />
+    <ClInclude Include="..\..\Common\scriptlib\script_parser.h" />
+    <ClInclude Include="..\..\Common\mfc\panelBase.h" />
+    <ClInclude Include="..\..\Common\mfc\panelListner.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\ModelViewer.ico" />
+    <None Include="res\ModelViewer.rc2" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ModelViewer.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="ModelViewer.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

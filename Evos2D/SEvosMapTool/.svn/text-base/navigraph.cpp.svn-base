@@ -1,0 +1,188 @@
+
+#include "stdafx.h"
+#include "navigraph.h"
+#include <algorithm>
+
+using namespace std;
+
+
+NaviGraph::NaviGraph()
+{
+	m_pRootNode = NULL;
+}
+
+
+NaviGraph::~NaviGraph()
+{
+	Clear();
+}
+
+
+//
+// Node 추가
+BOOL NaviGraph::AddNode( CGnode *pnode )
+{
+	if (IsExistNode(pnode)) return FALSE;
+	m_NodeList.push_back(pnode);
+
+	if (!m_pRootNode)
+	{
+		m_pRootNode = pnode;
+	}
+
+	return TRUE;
+}
+
+
+//
+//
+BOOL NaviGraph::AddEdge( CGnode *pfrom, CGnode *pto )
+{
+	CGedge *pedge = new CGedge();
+	if (!AddEdge(pfrom, pto, pedge))
+	{
+		delete pedge;
+		return FALSE;
+	}
+	return TRUE;
+}
+
+
+//
+//
+BOOL NaviGraph::AddEdge( CGnode *pfrom, CGnode *pto, CGedge *pedge )
+{
+	pedge->SetFrom(pfrom);
+	pedge->SetTo(pto);
+	
+	if (!pfrom->AddEdge(pedge))
+	{
+		return FALSE;
+	}
+
+	m_EdgeList.push_back(pedge);
+	return TRUE;
+}
+
+
+//
+//
+BOOL NaviGraph::RemoveNode( CGnode *pnode )
+{
+	NodeItor newend = remove_if(m_NodeList.begin(), m_NodeList.end(), CSearchCGnode(pnode));
+
+	NodeItor itor = newend;
+	while (m_NodeList.end() != itor)
+	{
+		CGnode *node = *itor++;
+		RemoveNode_(node);
+		delete node;
+	}
+
+	m_NodeList.erase(newend, m_NodeList.end());
+	return TRUE;
+}
+
+
+// 
+// node 와 연결되 edge 를 모두 제가한다.
+void NaviGraph::RemoveNode_( CGnode *pnode )
+{
+	CGnode::EdgeList *pedgeList = pnode->GetEdgeList();
+	CGnode::EdgeItor edgeItor = pedgeList->begin();
+	while (pedgeList->end() != edgeItor)
+	{
+		CGedge *pedge = *edgeItor++;
+
+		// To 노드에서 From 노드로 향하는 Edge 가 있다면 제거 한다.
+		CGnode *ptoNode = pedge->GetTo();
+		CGnode::EdgeList *ptoNodeEdgeList = ptoNode->GetEdgeList();
+		CGnode::EdgeItor toNodeEdgeItor = ptoNodeEdgeList->begin();
+		while (ptoNodeEdgeList->end() != toNodeEdgeItor)
+		{
+			CGedge *ptoEdge = *toNodeEdgeItor;
+			if (ptoEdge->GetTo() == pnode)
+			{
+				toNodeEdgeItor = ptoNodeEdgeList->erase(toNodeEdgeItor);
+				RemoveEdge(ptoEdge);
+			}
+			else 
+			{
+				++toNodeEdgeItor;
+			}
+		}
+		RemoveEdge(pedge);
+	}
+
+	pedgeList->clear();
+}
+
+
+// 
+// m_EdgeList에 저장된 edge를 제거한다.
+BOOL NaviGraph::RemoveEdge( CGedge *pedge )
+{
+	EdgeItor newend = remove_if(m_EdgeList.begin(), m_EdgeList.end(), CSearchCGedge(pedge));
+	EdgeItor itor = newend;
+	while (m_EdgeList.end() != itor)
+	{
+		CGedge *p = *itor++;
+		delete p;
+	}
+
+	m_EdgeList.erase(newend, m_EdgeList.end());
+
+	return TRUE;
+}
+
+
+//
+//
+void NaviGraph::Clear()
+{
+	NodeItor nodeitor = m_NodeList.begin();
+	while (m_NodeList.end() != nodeitor)
+	{
+		CGnode *pnode = *nodeitor++;
+		delete pnode;
+	}
+	m_NodeList.clear();
+
+	EdgeItor edgeitor = m_EdgeList.begin();
+	while (m_EdgeList.end() != edgeitor)
+	{
+		CGedge *pedge = *edgeitor++;
+		delete pedge;
+	}
+	m_EdgeList.clear();
+
+	m_pRootNode = NULL;
+
+}
+
+
+//
+//
+BOOL NaviGraph::IsExistEdge(CGedge *pedge )
+{
+	EdgeItor itor = find_if(m_EdgeList.begin(), m_EdgeList.end(), CSearchCGedge(pedge));
+	if (m_EdgeList.end() == itor)
+	{
+		return FALSE;
+	}
+	return TRUE;
+}
+
+
+//
+//
+BOOL NaviGraph::IsExistNode( CGnode *pnode )
+{
+	NodeItor itor = find_if(m_NodeList.begin(), m_NodeList.end(), CSearchCGnode(pnode));
+	if (m_NodeList.end() == itor)
+	{
+		return FALSE;
+	}
+	return TRUE;
+}
+

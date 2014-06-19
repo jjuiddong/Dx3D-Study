@@ -6,6 +6,12 @@
 #if !defined(__GLOBAL_H__)
 #define __GLOBAL_H__
 
+#define _AFX_SECURE_NO_WARNINGS 
+#define _ATL_SECURE_NO_WARNINGS
+
+#pragma warning (disable: 4996)	// strcpy 경고 제거
+
+
 #include <windows.h>
 #pragma warning (disable: 4786)
 #include <string>

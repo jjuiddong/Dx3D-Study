@@ -1,0 +1,17 @@
+GPJ
+
+MODELTABLE
+{
+	MODEL 0  "evolar" "evolar.s3m"
+	{
+		ANIMATION "evolar_wait.ani" 0 100
+		ANIMATION "evolar_run.ani" 0 20
+	}
+	MODEL 1 "evolar2" "evolar.s3m"
+	{
+		ANIMATION "evolar_wait.ani" 0 100
+		ANIMATION "evolar_run.ani" 0 20
+	}
+	RIGID 0 "rigidmodel" "evolar.s3m"
+	TERRAIN 0 "terrain" "evolar.s3m"
+}

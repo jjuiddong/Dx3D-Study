@@ -1,0 +1,840 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{32b7de1e-b4b2-4af2-a6d1-f35d008d0aac}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{f57d7e08-779c-4e46-9433-d060bfb67cf1}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{b137d3d6-d09b-490d-bdb7-6309bce5fd28}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{012a3f6d-06db-4664-843c-4f64f06dc771}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Doc">
+      <UniqueIdentifier>{e95372f2-bf0b-4e66-80fa-7730433a9f01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\image">
+      <UniqueIdentifier>{f20af5d3-b554-4ee9-86e7-076140bdd565}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\map">
+      <UniqueIdentifier>{b6ffc247-14c0-4159-aae4-8c71f6c1c820}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\map\tile">
+      <UniqueIdentifier>{31769fd6-4cce-419d-ba8f-37396da5f252}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\model">
+      <UniqueIdentifier>{7eed2215-1e60-441c-8a34-7201ce9cfa3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\SaveMap">
+      <UniqueIdentifier>{7c94a80e-697f-492e-8544-61a3c45d46e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\script">
+      <UniqueIdentifier>{675ef83f-e23f-4ce3-b716-02cb113a8e66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Texture">
+      <UniqueIdentifier>{29285b0a-4f7d-422f-bde5-ca76cd9bdcc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\ui">
+      <UniqueIdentifier>{8cb85335-6225-4d91-8cd9-5af249663a05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math">
+      <UniqueIdentifier>{562e0280-ff8d-48bc-a6bf-17ffc6b44b9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{843ee2c7-f3a5-42cc-b170-a181451c486c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain">
+      <UniqueIdentifier>{3ac18134-9304-40ab-aab1-bd28b3900fcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game">
+      <UniqueIdentifier>{c11a9432-25d9-48c9-a14a-27ddd4384f83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mfc">
+      <UniqueIdentifier>{ee087795-ca6b-468c-8fb6-5b911fc7c9a5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="aniFileListBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BasePanelFrame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CrTerrainDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileListBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Global.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LayerListCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MapTool2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MapTool2Dlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MapView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="modelEditMouseListner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="modelFileListBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelPannel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TabBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="terrainEditMouseListner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TerrainPannel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tileEditMouseListner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TilePanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\math\box.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\math\Matrix.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\math\plane.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\math\Quaternion.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\math\sphere.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\math\triangle.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\math\Vector2.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\math\Vector3.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\scriptlib\script.cpp">
+      <Filter>Data\script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\scriptlib\script_analyze.cpp">
+      <Filter>Data\script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\scriptlib\script_codegen.cpp">
+      <Filter>Data\script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\scriptlib\script_global.cpp">
+      <Filter>Data\script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\scriptlib\script_machine.cpp">
+      <Filter>Data\script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\scriptlib\script_parser.cpp">
+      <Filter>Data\script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\model\3dNode.cpp">
+      <Filter>Data\model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\model\AniMesh.cpp">
+      <Filter>Data\model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\model\Bone.cpp">
+      <Filter>Data\model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\model\collision.cpp">
+      <Filter>Data\model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\model\dispObject.cpp">
+      <Filter>Data\model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\model\KeyAniMesh.cpp">
+      <Filter>Data\model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\model\Mesh.cpp">
+      <Filter>Data\model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\model\Model.cpp">
+      <Filter>Data\model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\model\Track.cpp">
+      <Filter>Data\model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\common\Camera.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\common\d3dUtility.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\common\dbg.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\common\dbgpcinfo.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\common\dbgsymengine.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\common\FileLoader.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\common\frustum.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\common\light.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\common\LinearMemLoader.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\common\mmTimers.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\common\MouseInput.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\common\shader.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\common\skyBox.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\common\utility.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\terrain\chunk.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\terrain\chunkManager.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\terrain\quadtree.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\terrain\region.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\terrain\shadowsystem.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\terrain\Terrain.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\terrain\terrainCursor.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\terrain\TerrainEditor.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\terrain\water.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\game\ai_object.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\game\character.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\game\combo.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\game\control.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\game\LifeBar.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\game\scene.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\game\sceneGame.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\game\uicontrol.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\mfc\panelBase.cpp">
+      <Filter>mfc</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MapTool2.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="aniFileListBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BasePanelFrame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CrTerrainDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileListBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LayerListCtrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapTool2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapTool2Dlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="modelEditMouseListner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="modelFileListBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelPannel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TabBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="terrainEditMouseListner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TerrainPannel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tileEditMouseListner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TilePanel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\math\box.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\math\Math.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\math\Matrix.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\math\plane.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\math\Quaternion.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\math\sphere.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\math\triangle.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\math\Vector2.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\math\Vector3.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\scriptlib\script.h">
+      <Filter>Data\script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\scriptlib\script_analyze.h">
+      <Filter>Data\script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\scriptlib\script_codegen.h">
+      <Filter>Data\script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\scriptlib\script_global.h">
+      <Filter>Data\script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\scriptlib\script_machine.h">
+      <Filter>Data\script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\scriptlib\script_parser.h">
+      <Filter>Data\script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\model\3dNode.h">
+      <Filter>Data\model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\model\AniMesh.h">
+      <Filter>Data\model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\model\Bone.h">
+      <Filter>Data\model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\model\collision.h">
+      <Filter>Data\model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\model\dispObject.h">
+      <Filter>Data\model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\model\KeyAniMesh.h">
+      <Filter>Data\model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\model\Mesh.h">
+      <Filter>Data\model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\model\Model.h">
+      <Filter>Data\model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\model\Track.h">
+      <Filter>Data\model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\common\Camera.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\common\d3dUtility.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\common\dbg.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\common\dbgpcinfo.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\common\dbgstream.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\common\dbgsymengine.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\common\debug_stream.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\common\FileLoader.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\common\frustum.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\common\light.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\common\LinearMemLoader.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\common\mmTimers.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\common\mouseEventListner.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\common\MouseInput.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\common\parser.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\common\parserdef.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\common\shader.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\common\skyBox.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\common\structdef.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\common\utility.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\terrain\chunk.h">
+      <Filter>terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\terrain\chunkManager.h">
+      <Filter>terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\terrain\quadtree.h">
+      <Filter>terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\terrain\region.h">
+      <Filter>terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\terrain\shadowsystem.h">
+      <Filter>terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\terrain\Terrain.h">
+      <Filter>terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\terrain\terrainCursor.h">
+      <Filter>terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\terrain\TerrainEditor.h">
+      <Filter>terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\terrain\water.h">
+      <Filter>terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\game\ai_object.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\game\character.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\game\combo.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\game\control.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\game\LifeBar.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\game\scene.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\game\sceneGame.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\game\uicontrol.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\mfc\panelBase.h">
+      <Filter>mfc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\mfc\panelListner.h">
+      <Filter>mfc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\bitmap1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00001.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\MapTool2.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\MapTool2.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Doc\doc.txt">
+      <Filter>Data\Doc</Filter>
+    </None>
+    <None Include="image\0001.bmp">
+      <Filter>Data\image</Filter>
+    </None>
+    <None Include="image\001 copy.bmp">
+      <Filter>Data\image</Filter>
+    </None>
+    <None Include="image\001 copy.jpg">
+      <Filter>Data\image</Filter>
+    </None>
+    <None Include="image\002 copy.bmp">
+      <Filter>Data\image</Filter>
+    </None>
+    <None Include="image\32 --.bmp">
+      <Filter>Data\image</Filter>
+    </None>
+    <None Include="image\32 title.bmp">
+      <Filter>Data\image</Filter>
+    </None>
+    <None Include="image\55.bmp">
+      <Filter>Data\image</Filter>
+    </None>
+    <None Include="image\__석양.jpg">
+      <Filter>Data\image</Filter>
+    </None>
+    <None Include="image\_button2.bmp">
+      <Filter>Data\image</Filter>
+    </None>
+    <None Include="image\background.bmp">
+      <Filter>Data\image</Filter>
+    </None>
+    <None Include="image\bmp1.bmp">
+      <Filter>Data\image</Filter>
+    </None>
+    <None Include="image\button1.bmp">
+      <Filter>Data\image</Filter>
+    </None>
+    <None Include="image\button2.bmp">
+      <Filter>Data\image</Filter>
+    </None>
+    <None Include="image\Crate.bmp">
+      <Filter>Data\image</Filter>
+    </None>
+    <None Include="image\evolar.bmp">
+      <Filter>Data\image</Filter>
+    </None>
+    <None Include="image\lifebar.bmp">
+      <Filter>Data\image</Filter>
+    </None>
+    <None Include="image\lifeg.bmp">
+      <Filter>Data\image</Filter>
+    </None>
+    <None Include="image\loadscene.bmp">
+      <Filter>Data\image</Filter>
+    </None>
+    <None Include="image\사본 - button2.bmp">
+      <Filter>Data\image</Filter>
+    </None>
+    <None Include="image\사본 - lifebar.bmp">
+      <Filter>Data\image</Filter>
+    </None>
+    <None Include="map\tile\Detail.tga">
+      <Filter>Data\map\tile</Filter>
+    </None>
+    <None Include="map\tile\green.bmp">
+      <Filter>Data\map\tile</Filter>
+    </None>
+    <None Include="map\tile\radiation_box.tga">
+      <Filter>Data\map\tile</Filter>
+    </None>
+    <None Include="map\tile\Terrain0.tga">
+      <Filter>Data\map\tile</Filter>
+    </None>
+    <None Include="map\tile\tile2.tga">
+      <Filter>Data\map\tile</Filter>
+    </None>
+    <None Include="map\tile\자갈.bmp">
+      <Filter>Data\map\tile</Filter>
+    </None>
+    <None Include="model\_bmm.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\ani.a">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\ani.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\ani_box.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\ani_box2.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\ani_robot.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\ani_robot_kick.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\ani_robot_run.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\bmm.bmm">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\bmm.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\bmm2.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\box.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\character_1.a">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\character_1.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\character_1_.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\character_ani.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\character_bmm.bmm">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\character_bmm.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\chop.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\chop2.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\damage1.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\damage2.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\dash.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\dead.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\ex2.bmm">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\ex2.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\jmpdamage.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\kick.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\ko2.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\launch.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\launch3.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\old_bmm.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\pierce.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\robot.bmm">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\robot.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\upper.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\wait.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\wakeup.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\walk.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\weapon.bmm">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="model\weapon.txt">
+      <Filter>Data\model</Filter>
+    </None>
+    <None Include="SaveMap\ax.bmm">
+      <Filter>Data\SaveMap</Filter>
+    </None>
+    <None Include="SaveMap\ax.map">
+      <Filter>Data\SaveMap</Filter>
+    </None>
+    <None Include="script\(old) combo.txt">
+      <Filter>Data\script</Filter>
+    </None>
+    <None Include="script\__def.txt">
+      <Filter>Data\script</Filter>
+    </None>
+    <None Include="script\ai1.bgm">
+      <Filter>Data\script</Filter>
+    </None>
+    <None Include="script\ai1.gm">
+      <Filter>Data\script</Filter>
+    </None>
+    <None Include="script\AI1.txt">
+      <Filter>Data\script</Filter>
+    </None>
+    <None Include="script\combo.b">
+      <Filter>Data\script</Filter>
+    </None>
+    <None Include="script\combo.txt">
+      <Filter>Data\script</Filter>
+    </None>
+    <None Include="script\ComboParser.exe">
+      <Filter>Data\script</Filter>
+    </None>
+    <None Include="script\def.txt">
+      <Filter>Data\script</Filter>
+    </None>
+    <None Include="script\ScenarioScript.bgm">
+      <Filter>Data\script</Filter>
+    </None>
+    <None Include="script\ScenarioScript.gm">
+      <Filter>Data\script</Filter>
+    </None>
+    <None Include="script\ScenarioScript.txt">
+      <Filter>Data\script</Filter>
+    </None>
+    <None Include="script\ScriptDefine.bgm">
+      <Filter>Data\script</Filter>
+    </None>
+    <None Include="script\ScriptDefine.gm">
+      <Filter>Data\script</Filter>
+    </None>
+    <None Include="script\ScriptDefine.txt">
+      <Filter>Data\script</Filter>
+    </None>
+    <None Include="script\사본 - combo.txt">
+      <Filter>Data\script</Filter>
+    </None>
+    <None Include="Texture\Barrens_DesertDark.tga">
+      <Filter>Data\Texture</Filter>
+    </None>
+    <None Include="Texture\BumpEarth.jpg">
+      <Filter>Data\Texture</Filter>
+    </None>
+    <None Include="Texture\green.bmp">
+      <Filter>Data\Texture</Filter>
+    </None>
+    <None Include="Texture\tile2.tga">
+      <Filter>Data\Texture</Filter>
+    </None>
+    <None Include="Texture\자갈.bmp">
+      <Filter>Data\Texture</Filter>
+    </None>
+    <None Include="ui\scene.txt">
+      <Filter>Data\ui</Filter>
+    </None>
+    <None Include="ui\scene.ui">
+      <Filter>Data\ui</Filter>
+    </None>
+    <None Include="ui\scenelist.txt">
+      <Filter>Data\ui</Filter>
+    </None>
+    <None Include="FileList.htm" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

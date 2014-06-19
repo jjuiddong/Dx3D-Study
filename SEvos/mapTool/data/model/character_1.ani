@@ -1,0 +1,20 @@
+GPJ
+ANILIST 9
+{
+	ANIINFO "wait" "data//model//wait.txt"
+	ANIINFO "walk" "data//model//walk.txt"
+	ANIINFO "dash" "data//model//dash.txt"
+	ANIINFO "chop2" "data//model//chop2.txt"
+	ANIINFO "chop" "data//model//chop.txt"
+	ANIINFO "upper" "data//model//upper.txt"
+	ANIINFO "pierce" "data//model//pierce.txt"
+	ANIINFO "kick" "data//model//kick.txt"
+	ANIINFO "damage1" "data//model//damage1.txt"
+	ANIINFO "damage2" "data//model//damage2.txt"
+	ANIINFO "jmpdamage" "data//model//jmpdamage.txt"
+	ANIINFO "ko2" "data//model//ko2.txt"
+	ANIINFO "wakeup" "data//model//wakeup.txt"
+	ANIINFO "launch" "data//model//launch.txt"	
+	ANIINFO "dead" "data//model//dead.txt"
+	ANIINFO "ani" "data//model//ani.txt"
+}

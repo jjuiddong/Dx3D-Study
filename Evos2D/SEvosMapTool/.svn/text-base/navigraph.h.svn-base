@@ -1,0 +1,42 @@
+
+#ifndef __NAVIGRAPH_H__
+#define __NAVIGRAPH_H__
+
+#include "global.h"
+
+class NaviGraph
+{
+public:
+	NaviGraph();
+	virtual ~NaviGraph();
+
+protected:
+	typedef std::list<CGnode*> NodeList;
+	typedef std::list<CGedge*> EdgeList;
+	typedef NodeList::iterator NodeItor;
+	typedef EdgeList::iterator EdgeItor;
+	NodeList m_NodeList;
+	EdgeList m_EdgeList;
+	CGnode *m_pRootNode;
+
+public:
+	BOOL AddNode( CGnode *pnode );
+	BOOL AddEdge( CGnode *pfrom, CGnode *pto );
+	BOOL AddEdge( CGnode *pfrom, CGnode *pto, CGedge *pedge );
+	BOOL RemoveNode( CGnode *pnode );
+	BOOL RemoveEdge( CGedge *pedge );
+	void Clear();
+
+	BOOL IsExistNode( CGnode *pnode );
+	BOOL IsExistEdge( CGedge *pedge );
+
+	NodeList* GetNodeList() { return &m_NodeList; }
+	EdgeList* GetEdgeList() { return &m_EdgeList; }
+
+protected:
+	void RemoveNode_( CGnode *pnode );
+
+};
+
+#endif // __NAVIGRAPH_H__
+

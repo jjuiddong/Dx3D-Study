@@ -10,7 +10,7 @@
 
 #include <dshow.h>
 #include "sound_lib.h"
-
+/*
 
 //----------------------------------------------------------
 // CTrack_Mid, CTrack_Wav, CTrack_Mp3 의 부모가 된다.
@@ -101,5 +101,5 @@ protected:
 	DSOUND_WAV		m_DSBuffer;				// DirectSound Buffer info struct
 };
 
-
+/**/
 #endif // __SOUND_TRACK_H__

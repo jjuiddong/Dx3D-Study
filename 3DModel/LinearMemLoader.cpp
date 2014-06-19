@@ -573,7 +573,7 @@ BYTE* CLinearMemLoader::ReadScript( char *szFileName, char *szTokenName )
 	SDftDataParser parser;
 	SDftDataList *pRoot = parser.OpenScriptFile( szFileName );
 	if( !pRoot ) return NULL;
-	SDftDataList *pToken = FindToken( pRoot->pChild, SDftData(szTokenName) );
+	SDftDataList *pToken = SDftDataParser::FindToken( pRoot->pChild, SDftData(szTokenName) );
 	if( !pToken ) return NULL;
 
 	TokenItor titor = m_STokenMap.find( szTokenName );
@@ -700,7 +700,7 @@ void CLinearMemLoader::ReadScriptRec( BYTE *pStruct, SDftDataList *pNode, Member
 				if( m_STokenMap.end() == titor ) break; // error !!
 
 				SType type = titor->second;
-				int nCount = GetNodeCount( pNode, SDftData((char*)mitor->strToken.c_str()) );
+				int nCount = SDftDataParser::GetNodeCount( pNode, SDftData((char*)mitor->strToken.c_str()) );
 				if( 0 < nCount )
 				{
 					BYTE *pSubMem = new BYTE[ nCount * type.size];

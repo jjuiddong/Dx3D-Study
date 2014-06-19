@@ -1,0 +1,24 @@
+GPJ
+ANIFORM 1
+{
+	ANIMATIONGROUP "aa" 0 1
+	{
+		ANIMATION 0 0f 89f
+		{
+			KEY_POS 1
+			{
+				FRAME_POS 0 [0,0,0] 
+			}
+			KEY_ROT 3
+			{
+				FRAME_ROT 0 [0.0 0.0 0.0 1.0]
+				FRAME_ROT 20f [-0.677706 0.0 0.0 0.735333]
+				FRAME_ROT 40f [0.0354236 0.0 0.0 0.999372]
+			}
+			KEY_SCALE 1
+			{
+				FRAME_SCALE 0 [1,1,1] 
+			}
+		}
+	}
+}

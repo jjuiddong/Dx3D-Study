@@ -1,0 +1,32 @@
+GPJ
+
+vector3
+{
+	float
+	float
+	float
+}
+
+MODEL
+{
+	vector3
+	int
+	char[64]
+}
+
+TERRAIN
+{
+	int
+	int
+	int
+	int
+	int
+	int
+	int
+	size
+	float*
+	size
+	MODEL*
+	size
+	MODEL*
+}

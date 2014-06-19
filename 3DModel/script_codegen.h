@@ -102,7 +102,7 @@ namespace ns_script
 			_tagSInst() {}
 			_tagSInst( int _loc, char *_op, int _r, int _s, int _t, char *_comment ) : loc(_loc), r(_r), s(_s), t(_t)
 				{ strcpy( op, _op ); if( _comment ) strcpy( comment, _comment ); }
-			operator < ( const _tagSInst& rhs )
+			bool operator < ( const _tagSInst& rhs )
 				{ return loc < rhs.loc; }
 		} SInst;
 		std::list<SInst> m_InstList;

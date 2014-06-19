@@ -1,0 +1,50 @@
+
+#ifndef __GEDGE_H__
+#define __GEDGE_H__
+
+
+class CGnode;
+class CGedge
+{
+public:
+	CGedge() {}
+	virtual ~CGedge() {}
+
+protected:
+	CGnode *m_pFrom;
+	CGnode *m_pTo;
+
+public:
+	void SetFrom(CGnode *pfrom) {m_pFrom = pfrom;}
+	void SetTo(CGnode *pto) {m_pTo = pto; }
+	CGnode* GetFrom() { return m_pFrom; }
+	CGnode* GetTo() { return m_pTo; }
+
+};
+
+
+#include <functional>
+#include <algorithm>
+
+class CSearchCGedge: public std::unary_function<CGedge*, bool>
+{
+public:
+	CSearchCGedge(CGedge *p):m_pSearchEdge(p) {}
+	CGedge *m_pSearchEdge;
+	bool operator ()(CGedge *t) const
+	{
+		if (m_pSearchEdge == t)
+		{
+			return true;
+		} 
+		else if ((m_pSearchEdge->GetTo() == t->GetTo()) &&
+				 (m_pSearchEdge->GetFrom() == t->GetFrom()))
+		{
+			return true;
+		}
+
+		return false;
+	}
+};
+
+#endif // __GEDGE_H__

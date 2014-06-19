@@ -8,7 +8,7 @@
 
 
 #include <windows.h>
-
+/*
 template< class T >
 struct STreeNode
 {
@@ -152,5 +152,5 @@ void CTree<T>::Release( SNode *pNode )
 	delete pNode;
 }
 
-
+/**/
 #endif // __TREE_H__

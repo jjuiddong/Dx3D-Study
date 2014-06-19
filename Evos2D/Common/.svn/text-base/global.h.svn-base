@@ -1,0 +1,42 @@
+
+#ifndef __GLOBAL_H__
+#define __GLOBAL_H__
+
+
+#include <list>
+#include "../common/2d/wall2d.h"
+#include "../common/2d/vector2d.h"
+#include "../common/misc/cgdi.h"
+
+#include "../common/graph/sparsegraph.h"
+#include "../common/graph/GraphNodeTypes.h"
+#include "../common/graph/GraphEdgeTypes.h"
+
+
+#include "../Common/evos/block.h"
+
+
+template<typename T>
+inline void SAFE_DELETE (T &val) 
+{ 
+	if (val)
+	{
+		delete (val); 
+		val = NULL;
+	}
+}
+
+
+enum
+{
+	MAP_WIDTH = 500,
+	MAP_HEIGHT = 500,
+	MAP_CELL_SIZE = 30,
+	MAP_NUM_CELL_X = MAP_WIDTH / MAP_CELL_SIZE,
+	MAP_NUM_CELL_Y = MAP_HEIGHT / MAP_CELL_SIZE,
+
+	MAP_CELL_COLLISION_LENGTH = MAP_CELL_SIZE / 3,
+
+};
+
+#endif // __GLOBAL_H__

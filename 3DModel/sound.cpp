@@ -30,15 +30,15 @@ CSound::~CSound()
 {
 	AllStop();	
 	// delete sound data
-	for( int i=0; i < MAX_TRACK; ++i )
-	{
-		if( m_pTrackArray[ i] )
-			delete m_pTrackArray[ i];
-	}
+	//for( int i=0; i < MAX_TRACK; ++i )
+	//{
+	//	if( m_pTrackArray[ i] )
+	//		delete m_pTrackArray[ i];
+	//}
 
 	// DirectSound, DirectMusic 해제
-	DSound_Shutdown();
-	DMusic_Shutdown();
+	//DSound_Shutdown();
+	//DMusic_Shutdown();
 }
 
 
@@ -47,11 +47,11 @@ CSound::~CSound()
 //-------------------------------------------
 BOOL CSound::Init( HWND hwnd )
 {
-	if( !DSound_Init( hwnd ) )
-		return FALSE;
+	//if( !DSound_Init( hwnd ) )
+	//	return FALSE;
 
-	if( !DMusic_Init( hwnd ) )
-		return FALSE;
+	//if( !DMusic_Init( hwnd ) )
+	//	return FALSE;
 
 	return TRUE;
 }
@@ -64,27 +64,27 @@ BOOL CSound::Init( HWND hwnd )
 //--------------------------------------------
 BOOL CSound::Load( int iID, char *szFileName )
 {
-	if( MAX_TRACK <= (unsigned)iID ) return FALSE;
-	if( m_pTrackArray[ iID] ) return FALSE; // 이미 설정되었다면 리턴
+	//if( MAX_TRACK <= (unsigned)iID ) return FALSE;
+	//if( m_pTrackArray[ iID] ) return FALSE; // 이미 설정되었다면 리턴
 
-	// 확장자 얻음
-	char szExpend[ 4];
-	int len = strlen( szFileName );
-	strcpy( szExpend, &szFileName[ len-3] );
+	//// 확장자 얻음
+	//char szExpend[ 4];
+	//int len = strlen( szFileName );
+	//strcpy( szExpend, &szFileName[ len-3] );
 
-	// Load
-	if( !strcmp( szExpend, "mid" ) ) // midi
-		m_pTrackArray[ iID] = new CTrack_Mid();
-	else if( !strcmp( szExpend, "wav" ) ) // wave
-		m_pTrackArray[ iID] = new CTrack_Wav();
-	else
-	{
-		return FALSE; // 지원하지 않는 확장자
-	}
+	//// Load
+	//if( !strcmp( szExpend, "mid" ) ) // midi
+	//	m_pTrackArray[ iID] = new CTrack_Mid();
+	//else if( !strcmp( szExpend, "wav" ) ) // wave
+	//	m_pTrackArray[ iID] = new CTrack_Wav();
+	//else
+	//{
+	//	return FALSE; // 지원하지 않는 확장자
+	//}
 
-	// load sound file
-	if( !m_pTrackArray[ iID]->Load(szFileName) )
-		return FALSE;
+	//// load sound file
+	//if( !m_pTrackArray[ iID]->Load(szFileName) )
+	//	return FALSE;
 
 	return TRUE;
 }
@@ -95,15 +95,15 @@ BOOL CSound::Load( int iID, char *szFileName )
 //-----------------------------------------------------------------------------//
 BOOL CSound::Load_Adpcm( int iID, char *szFileName )
 {
-	if( MAX_TRACK <= (unsigned)iID ) return FALSE;
-	if( m_pTrackArray[ iID] ) return FALSE; // 이미 설정되었다면 리턴
+	//if( MAX_TRACK <= (unsigned)iID ) return FALSE;
+	//if( m_pTrackArray[ iID] ) return FALSE; // 이미 설정되었다면 리턴
 
-	// adpcm wave
-	m_pTrackArray[ iID] = new CTrack_Adpcm();
+	//// adpcm wave
+	//m_pTrackArray[ iID] = new CTrack_Adpcm();
 
-	// load sound file
-	if( !m_pTrackArray[ iID]->Load( szFileName ) )
-		return FALSE;
+	//// load sound file
+	//if( !m_pTrackArray[ iID]->Load( szFileName ) )
+	//	return FALSE;
 
 	return TRUE;
 }
@@ -114,18 +114,18 @@ BOOL CSound::Load_Adpcm( int iID, char *szFileName )
 //-----------------------------
 BOOL CSound::Play( int iID, BOOL bLoop ) // bLoop = FALSE
 {
-	if( (unsigned)iID >= MAX_TRACK ) return FALSE;
-
-	if( m_pTrackArray[ iID] )
-	{
-//		if( -1 != m_iPlayID )
-//			Stop( m_iPlayID );
-
-		// play sound
-		m_pTrackArray[ iID]->Play( bLoop );
-		m_iPlayID = iID;
-		return TRUE;
-	}
+//	if( (unsigned)iID >= MAX_TRACK ) return FALSE;
+//
+//	if( m_pTrackArray[ iID] )
+//	{
+////		if( -1 != m_iPlayID )
+////			Stop( m_iPlayID );
+//
+//		// play sound
+//		m_pTrackArray[ iID]->Play( bLoop );
+//		m_iPlayID = iID;
+//		return TRUE;
+//	}
 
 	return FALSE;
 }
@@ -136,15 +136,15 @@ BOOL CSound::Play( int iID, BOOL bLoop ) // bLoop = FALSE
 //------------------------------
 BOOL CSound::Stop( int iID )
 {
-	if( (unsigned)iID >= MAX_TRACK ) return FALSE;
+	//if( (unsigned)iID >= MAX_TRACK ) return FALSE;
 
-	if( m_pTrackArray[ iID] )
-	{
-		// play sound
-		m_pTrackArray[ iID]->Stop();
-		m_iPlayID = -1;
-		return TRUE;
-	}
+	//if( m_pTrackArray[ iID] )
+	//{
+	//	// play sound
+	//	m_pTrackArray[ iID]->Stop();
+	//	m_iPlayID = -1;
+	//	return TRUE;
+	//}
 
 	return FALSE;
 }
@@ -155,11 +155,11 @@ BOOL CSound::Stop( int iID )
 //-------------------------------
 void CSound::AllStop()
 {
-	for( int i=0; i < MAX_TRACK; ++i )
-	{
-		if( m_pTrackArray[ i] )
-			m_pTrackArray[ i]->Stop();
-	}
+	//for( int i=0; i < MAX_TRACK; ++i )
+	//{
+	//	if( m_pTrackArray[ i] )
+	//		m_pTrackArray[ i]->Stop();
+	//}
 }
 
 
@@ -168,9 +168,9 @@ void CSound::AllStop()
 //------------------------
 void CSound::Volume( int iID, int iVol )
 {
-	if( (unsigned)iID >= MAX_TRACK ) return;
-	if( m_pTrackArray[ iID] )
-		m_pTrackArray[ iID]->Volume( iVol );
+	//if( (unsigned)iID >= MAX_TRACK ) return;
+	//if( m_pTrackArray[ iID] )
+	//	m_pTrackArray[ iID]->Volume( iVol );
 }
 
 
@@ -179,28 +179,28 @@ void CSound::Volume( int iID, int iVol )
 //------------------------
 void CSound::Add_Record( int iSound_ID, int iSound_Delay, BOOL bPlay, BOOL bLoop  )
 {
-	if( MAX_RECORD <= (unsigned)m_iRecord_Count ) return;
+	//if( MAX_RECORD <= (unsigned)m_iRecord_Count ) return;
 
-	int find = -1;
-	for( int i=0; i < MAX_RECORD; ++i )
-	{
-		if( !m_Record[ i].bUsed )
-		{
-			find = i;
-			break;
-		}
-	}
-	if( 0 > find ) return;
+	//int find = -1;
+	//for( int i=0; i < MAX_RECORD; ++i )
+	//{
+	//	if( !m_Record[ i].bUsed )
+	//	{
+	//		find = i;
+	//		break;
+	//	}
+	//}
+	//if( 0 > find ) return;
 
-	// 저장
-	m_Record[ find].bUsed = TRUE;
-	m_Record[ find].play = bPlay;
-	m_Record[ find].loop = bLoop;
-	m_Record[ find].sound_id = iSound_ID;
-	m_Record[ find].sound_delay = iSound_Delay;
+	//// 저장
+	//m_Record[ find].bUsed = TRUE;
+	//m_Record[ find].play = bPlay;
+	//m_Record[ find].loop = bLoop;
+	//m_Record[ find].sound_id = iSound_ID;
+	//m_Record[ find].sound_delay = iSound_Delay;
 
-	// 레코드 갯수증가
-	++m_iRecord_Count;
+	//// 레코드 갯수증가
+	//++m_iRecord_Count;
 }
 
 
@@ -219,32 +219,32 @@ void CSound::Clear_Record()
 //-------------------------
 void CSound::Proc( int iElaps )
 {
-	for( int i=0; i < MAX_TRACK; ++i )
-	{
-		if( m_pTrackArray[ i] )
-			m_pTrackArray[ i]->Proc();
-	}
-	if( 0 >= m_iRecord_Count )
-		return;
+	//for( int i=0; i < MAX_TRACK; ++i )
+	//{
+	//	if( m_pTrackArray[ i] )
+	//		m_pTrackArray[ i]->Proc();
+	//}
+	//if( 0 >= m_iRecord_Count )
+	//	return;
 
-	for( i=0; i < MAX_RECORD; ++i )
-	{
-		if( m_Record[ i].bUsed )
-		{
-			// 일정시간이 지나면 사운드를 Play 하거나 Stop 한다.
-			m_Record[ i].sound_delay -= iElaps;
-			if( 0 >= m_Record[ i].sound_delay )
-			{
-				if( m_Record[ i].play )
-					Play( m_Record[ i].sound_id, m_Record[ i].loop );
-				else
-					Stop( m_Record[ i].sound_id );
+	//for( i=0; i < MAX_RECORD; ++i )
+	//{
+	//	if( m_Record[ i].bUsed )
+	//	{
+	//		// 일정시간이 지나면 사운드를 Play 하거나 Stop 한다.
+	//		m_Record[ i].sound_delay -= iElaps;
+	//		if( 0 >= m_Record[ i].sound_delay )
+	//		{
+	//			if( m_Record[ i].play )
+	//				Play( m_Record[ i].sound_id, m_Record[ i].loop );
+	//			else
+	//				Stop( m_Record[ i].sound_id );
 
-				m_Record[ i].bUsed = FALSE;
-				--m_iRecord_Count;
-			}
-		}
-	}
+	//			m_Record[ i].bUsed = FALSE;
+	//			--m_iRecord_Count;
+	//		}
+	//	}
+	//}
 }
 
 
@@ -253,9 +253,9 @@ void CSound::Proc( int iElaps )
 //-----------------------------------------------------------------------------//
 void CSound::SetSoundOn( int iID, BOOL bOn )
 {
-	if( (unsigned)iID >= MAX_TRACK ) return;
-	Volume( iID, (bOn)? 100 : 0 );
-	if( m_pTrackArray[ iID] )
-		m_pTrackArray[ iID]->SoundOn( bOn );
+	//if( (unsigned)iID >= MAX_TRACK ) return;
+	//Volume( iID, (bOn)? 100 : 0 );
+	//if( m_pTrackArray[ iID] )
+	//	m_pTrackArray[ iID]->SoundOn( bOn );
 }
 

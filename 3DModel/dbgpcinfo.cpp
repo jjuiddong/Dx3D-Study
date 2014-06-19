@@ -200,7 +200,7 @@ VOID KSystemInfo::GetWorkGroupName(LPTSTR szGroupName, DWORD *pdwSize)
 			if (nStatus == NERR_Success)
 			{
 				//유니코드를 스트링으로 변환
-				WideCharToMultiByte(CP_ACP, 0, (const unsigned short *)pBuf->wki102_langroup, -1, szTempGroupName, sizeof(szTempGroupName), 0, 0);
+				//WideCharToMultiByte(CP_ACP, 0, (const unsigned short *)pBuf->wki102_langroup, -1, szTempGroupName, sizeof(szTempGroupName), 0, 0);
 
 				int nLen = min(*pdwSize,_tcslen(szTempGroupName));
 				_tcsncpy( szGroupName, szTempGroupName, nLen  );

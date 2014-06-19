@@ -1,0 +1,41 @@
+
+#ifndef __BLOCK_H__
+#define __BLOCK_H__
+
+#include "global.h"
+
+class CBlock
+{
+public:
+	CBlock() {}
+	virtual ~CBlock();
+
+protected:
+	std::list<Wall2D*> m_WallList;
+	std::list<Vector2D*> m_PointList;
+
+public:
+	BOOL AddWall( Wall2D *pWall );
+	BOOL DelWall( int index );
+	Wall2D* GetWall( int index );
+	Wall2D* GetBeginWall();
+	Wall2D* GetEndWall();
+	Wall2D* FindWall( Vector2D *pPoint );
+	void CalculateNormal();
+
+	BOOL IsInBlock( const Vector2D *pPoint );
+	BOOL IsCrossPoint( const Vector2D &A1, const Vector2D &A2 );
+
+	BOOL Write(std::ostream &os);
+	BOOL Read(std::ifstream &is);
+
+	void Render();
+	void Update(float timeDelta);
+	void Clear();
+
+protected:
+	std ::list<Wall2D*>::iterator GetWallItor( int index );
+
+};
+
+#endif // __BLOCK_H__
