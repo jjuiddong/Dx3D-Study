@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BasicFrame", "BasicFrame.vcxproj", "{FE65DDDB-F3F4-47F9-AA67-A016D80F1F29}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE65DDDB-F3F4-47F9-AA67-A016D80F1F29}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FE65DDDB-F3F4-47F9-AA67-A016D80F1F29}.Debug|Win32.Build.0 = Debug|Win32
+		{FE65DDDB-F3F4-47F9-AA67-A016D80F1F29}.Release|Win32.ActiveCfg = Release|Win32
+		{FE65DDDB-F3F4-47F9-AA67-A016D80F1F29}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
