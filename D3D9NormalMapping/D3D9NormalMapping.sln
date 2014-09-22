@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "D3D9NormalMapping", "D3D9NormalMapping.vcxproj", "{D1B6899D-AF1F-40E0-90E9-EE478AD491A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1B6899D-AF1F-40E0-90E9-EE478AD491A6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D1B6899D-AF1F-40E0-90E9-EE478AD491A6}.Debug|Win32.Build.0 = Debug|Win32
+		{D1B6899D-AF1F-40E0-90E9-EE478AD491A6}.Release|Win32.ActiveCfg = Release|Win32
+		{D1B6899D-AF1F-40E0-90E9-EE478AD491A6}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = 
+	EndGlobalSection
+EndGlobal

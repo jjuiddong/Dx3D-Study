@@ -1,0 +1,9 @@
+credits.txt
+-----------
+
+color_map.jpg:
+- http://www.filterforge.com/filters/
+
+normal_map.jpg
+- originally from http://www.filterforge.com/filters/
+- modified using http://www.crazybump.com/
