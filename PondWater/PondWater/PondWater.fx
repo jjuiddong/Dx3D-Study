@@ -94,6 +94,7 @@ struct OutputVS
     float  eyeVertDist : TEXCOORD5;
 };
 
+
 OutputVS WaterVS(float3 posL : POSITION0, float2 tex0 : TEXCOORD0)
 {
     // Zero out our output.
@@ -189,7 +190,7 @@ float4 WaterPS(float3 toEyeT      : TEXCOORD0,
 	// it doesn't cause much distortion.  The following power function
 	// scales v very little until it gets near 1.0.
 	// (Plot this function to see how it looks.)
-	float vPerturbMod = -pow(projTexC.y, 10.0f) + 1.0f;
+	float vPerturbMod = -pow(abs(projTexC.y), 10.0f) + 1.0f;
 	
 	// Sample reflect/refract maps and perturb texture coordinates.
 	float2 perturbVec = normalT.xz*gRippleScale;

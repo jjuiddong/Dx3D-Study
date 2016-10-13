@@ -1,0 +1,8 @@
+
+법선맵 설명. 
+http://allosha.tistory.com/14
+
+
+Directx9 셰이더 프로그래밍 책에도 잘 나와 있다.
+
+

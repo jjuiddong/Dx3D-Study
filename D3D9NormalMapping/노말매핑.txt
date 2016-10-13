@@ -1,0 +1,25 @@
+
+노멀 매핑 자료
+
+
+대략적인 설명.
+http://coreafive.tistory.com/entry/Introduction-to-3D-Game-Programming-with-DirectX-90c-%EB%85%B8%EB%A9%80%EB%A7%A4%ED%95%91%ED%8E%B8
+
+
+디테일한 설명. 좋다.
+http://m.blog.naver.com/since860321/130176043844
+
+
+
+max script 로 tangent 공간 행렬 구하기.
+tangent 공간 행렬을 구하는 함수를 소개한다. good
+
+http://forums.cgsociety.org/archive/index.php/t-407814.html
+
+
+노멀 매핑 예제코드
+DirectX 9 용. 좋은 코드다.
+project : D3D9NormalMapping
+http://www.dhpoware.com/demos/d3d9NormalMapping.html
+
+

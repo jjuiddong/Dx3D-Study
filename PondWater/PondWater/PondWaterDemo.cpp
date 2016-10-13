@@ -136,7 +136,7 @@ PondWaterDemo::PondWaterDemo(HINSTANCE hInstance,tstring winCaption, D3DDEVTYPE 
 	waterInitInfo.refractPower = 2.0f;
 	waterInitInfo.rippleScale  = D3DXVECTOR2(0.06f, 0.03f); 
 	waterInitInfo.toWorld = mWaterWorld;
- 
+
 	mWater = new PondWater(waterInitInfo);
 
 	ID3DXMesh* tempMesh = 0;

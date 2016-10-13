@@ -2,7 +2,32 @@
 물효과.
 
 
+pondwater 번역
 http://blog.naver.com/swoosungi/90086817771
-http://mgun.tistory.com/1351
+
+
+물표현 자세히 설명.
+http://mgun.tistory.com/1282
+
+
+물표현 설명.
+http://allosha.tistory.com/52
+
+
+PondWater 예제 주의할 점.
+
+
+ clip plane 을 설정해서 반사맵과 굴절맵을 만드는데,  clip plane 은 
+고정 파이프라인과 프로그래머블 파이프라인이 서로 다르게 계산된다. 
+
+자세한 내용은 아래에
+http://www.gamedev.net/topic/317776-how-to-setup-a-clipping-plane/
+
+간단히 말하자면 고정 파이프라인에서는 world 좌표계로 클리핑하고,
+쉐이더에서는 클리핑 좌표계로 클리핑 한다.
+
+그래서 pondwater 에서는 모드 쉐어더로 메쉬를 출력하고 있고, clip plane
+계산시 카메라 view, project 행렬을 곱해서 계산한다.
+
 
 
